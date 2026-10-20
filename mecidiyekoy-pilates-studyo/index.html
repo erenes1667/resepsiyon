@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a0807">
+<title>Resepsiyon AI demosu, Mecidiyeköy Pilates Stüdyo</title>
+<meta name="description" content="Üyelerin sorularını yanıtlayan ve rezervasyon talebi toplayan Türkçe AI resepsiyonist. Mecidiyeköy Pilates Stüdyo için hazırlanmış örnek demo.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Resepsiyon AI: Mecidiyeköy Pilates Stüdyo için demo">
+<meta property="og:description" content="Üyelerin sorularını yanıtlayan ve rezervasyon talebi toplayan Türkçe AI resepsiyonist. Mecidiyeköy Pilates Stüdyo için hazırlanmış örnek demo.">
+<meta property="og:image" content="https://erenes1667.github.io/resepsiyon/mecidiyekoy-pilates-studyo/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Hanken+Grotesk:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0807; --bg2:#110e0b; --ink:#f1e8d8; --dim:#8d8374; --faint:#4d453b;
+  --amber:#f2a93b; --amber-soft:rgba(242,169,59,.14); --line:rgba(241,232,216,.1);
+  --panel:rgba(20,16,12,.62); --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Hanken Grotesk',system-ui,sans-serif; --mono:'DM Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;filter:blur(28px) saturate(1.1)}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:1px solid var(--amber);outline-offset:3px}
+.app{position:relative;z-index:2;min-height:100%;display:flex;flex-direction:column;padding:max(18px,env(safe-area-inset-top)) clamp(16px,3.2vw,48px) max(18px,env(safe-area-inset-bottom))}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding-bottom:14px}
+.brand{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+.brand h1{font-family:var(--serif);font-weight:300;font-size:clamp(52px,7.4vw,104px);line-height:.82;letter-spacing:-.02em}
+.brand h1 i{color:var(--amber);font-style:italic}
+.brand .sub{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);display:flex;flex-direction:column;gap:6px}
+.chip{display:inline-block;border:1px solid var(--amber);color:var(--amber);padding:2px 8px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;width:max-content}
+main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(14px,2vw,28px)}
+.panel{background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);min-height:0}
+/* chat */
+.chat{display:flex;flex-direction:column;min-height:0}
+.chat-head{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.live{display:inline-flex;align-items:center;gap:8px}
+.live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber);animation:pulse 2.4s ease-in-out infinite}
+.live.off::before{background:var(--faint);box-shadow:none;animation:none}
+@keyframes pulse{50%{opacity:.35}}
+#log{flex:1;min-height:0;overflow-y:auto;padding:20px 18px;display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth}
+.msg{max-width:84%;padding:10px 14px;font-size:15px;line-height:1.5;animation:rise .45s cubic-bezier(.2,.7,.2,1) both;white-space:pre-wrap;overflow-wrap:anywhere}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}}
+.msg.bot{align-self:flex-start;border-left:2px solid var(--amber);padding-left:14px;color:var(--ink)}
+.msg.me{align-self:flex-end;background:rgba(241,232,216,.07);border:1px solid var(--line);color:var(--ink)}
+.msg.note{align-self:center;max-width:100%;text-align:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);padding:2px}
+.msg.handoff{border-left-color:var(--dim);color:var(--dim)}
+.typing{align-self:flex-start;display:flex;gap:5px;padding:12px 14px;border-left:2px solid var(--amber)}
+.typing span{width:5px;height:5px;background:var(--amber);border-radius:50%;animation:bounce 1s infinite ease-in-out}
+.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,80%,100%{opacity:.25;transform:none}40%{opacity:1;transform:translateY(-4px)}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 12px}
+.chips button{background:none;border:1px solid var(--line);color:var(--dim);padding:6px 12px;font-size:13px;transition:.2s}
+.chips button:hover{border-color:var(--amber);color:var(--ink)}
+form.in{display:flex;gap:8px;padding:12px 18px 16px;border-top:1px solid var(--line);align-items:center}
+form.in input{flex:1;min-width:0;background:rgba(0,0,0,.35);border:1px solid var(--line);padding:12px 14px;outline:none;transition:border-color .2s}
+form.in input:focus{border-color:var(--amber)}
+.send{background:var(--ink);color:#120d07;border:0;padding:0 20px;height:46px;font-weight:600;letter-spacing:.04em;transition:.2s}
+.send:hover{background:var(--amber)}
+.send:disabled{opacity:.4}
+/* ticket */
+.side{display:flex;flex-direction:column;gap:14px;min-height:0;overflow-y:auto}
+.ticket{position:relative;padding:22px 22px 20px;overflow:hidden}
+.ticket::before,.ticket::after{content:"";position:absolute;top:96px;width:18px;height:18px;border-radius:50%;background:var(--bg);border:1px solid var(--line)}
+.ticket::before{left:-10px}.ticket::after{right:-10px}
+.t-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding-bottom:26px;border-bottom:1px dashed rgba(241,232,216,.18)}
+.t-top .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--dim);text-transform:uppercase}
+.t-top h2{font-family:var(--serif);font-weight:300;font-size:34px;line-height:1;margin-top:6px}
+.count{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.1em}
+.bar{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-top:10px}
+.bar i{height:2px;background:var(--faint);transition:.5s}
+.bar i.on{background:var(--amber);box-shadow:0 0 10px var(--amber)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;padding-top:24px}
+.f.wide{grid-column:1/-1}
+.f label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.f .v{font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1;min-height:38px;font-family:var(--serif);font-size:30px;font-weight:300;line-height:1.1;color:var(--faint);border-bottom:1px solid var(--line);padding-bottom:5px;overflow-wrap:anywhere;transition:color .4s,border-color .4s}
+.f .v.has{color:var(--ink);border-color:var(--amber)}
+.f .v.glow{animation:glow 1.6s ease-out}
+@keyframes glow{0%{color:#fff;text-shadow:0 0 28px var(--amber),0 0 8px var(--amber);background:linear-gradient(90deg,var(--amber-soft),transparent)}100%{text-shadow:0 0 0 transparent}}
+.cta{margin-top:24px;display:flex;flex-direction:column;gap:10px}
+.wa{display:block;text-align:center;padding:14px;font-weight:600;letter-spacing:.04em;text-decoration:none;border:1px solid var(--line);color:var(--dim);background:none;width:100%}
+a.wa{background:var(--amber);color:#150e04;border-color:var(--amber);box-shadow:0 0 30px rgba(242,169,59,.35);transition:.2s}
+a.wa:hover{filter:brightness(1.1)}
+.hint{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--dim);text-align:center}
+.reset{background:none;border:0;color:var(--dim);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px dotted var(--faint);align-self:center;display:none}
+.info{padding:16px 20px;font-size:13px;color:var(--dim);display:grid;gap:4px}
+.info b{color:var(--ink);font-weight:500}
+.info .k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber)}
+/* owner */
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+.app{min-height:100%;height:auto}
+.demobar{border:1px solid rgba(242,169,59,.4);background:var(--amber-soft);padding:9px 14px;margin-bottom:14px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;line-height:1.55;color:var(--ink)}
+.demobar b{color:var(--amber);font-weight:500;letter-spacing:.14em;margin-right:6px}
+header{align-items:flex-end;padding-bottom:16px}
+.brand h1{font-size:clamp(46px,6.2vw,88px)}
+.brand .sub{font-size:11px}
+.chat-head .cnt{color:var(--amber)}
+.empty-state{margin:auto;max-width:340px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;padding:10px 0}
+.empty-state .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.empty-state p{font-family:var(--serif);font-weight:300;font-size:25px;line-height:1.2}
+.play{background:var(--amber);color:#150e04;border:0;padding:15px 26px;font-weight:600;letter-spacing:.05em;font-size:16px;box-shadow:0 0 32px rgba(242,169,59,.38);transition:.2s;min-height:48px}
+.play:hover{filter:brightness(1.1)}
+.empty-state small{font-size:12.5px;color:var(--dim)}
+.msg.me.script{background:rgba(242,169,59,.08);border-color:rgba(242,169,59,.28)}
+.wa.done{background:var(--amber-soft);color:var(--ink);border-color:rgba(242,169,59,.5);font-weight:500;font-size:14px;line-height:1.45}
+.chip.s{margin-left:0}
+.t-top .chip{margin-top:8px}
+.info a{color:var(--amber);text-decoration:none;border-bottom:1px dotted rgba(242,169,59,.5);overflow-wrap:anywhere}
+.info .src{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:2px}
+.reset{display:none}
+.closing{margin-top:clamp(14px,2vw,28px);padding:28px clamp(18px,3vw,40px);display:grid;gap:12px;max-width:880px}
+.closing p{font-family:var(--serif);font-weight:300;font-size:clamp(22px,2.6vw,30px);line-height:1.28}
+.closing p.cta-line{color:var(--amber);font-style:italic}
+footer{padding:18px 0 4px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;line-height:1.6;color:var(--dim)}
+main{display:flex;flex-direction:column}
+.chat{height:min(66vh,560px);flex:none}
+.side{overflow:visible}
+header{flex-direction:column;align-items:flex-start}
+.msg{max-width:92%}
+.fields{gap:16px 14px}
+.f .v{font-size:26px}
+@media (min-width:861px){
+  header{flex-direction:row;align-items:flex-end}
+  main{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);height:clamp(520px,calc(100vh - 210px),740px)}
+  .chat{height:auto;flex:initial}
+  .side{overflow-y:auto}
+  .msg{max-width:84%}
+  .fields{gap:20px 18px}
+  .f .v{font-size:30px}
+}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div>
+<div class="app">
+  <div class="demobar" role="note">Demo: Enes Eren tarafından Mecidiyeköy Pilates Stüdyo için hazırlandı. Mecidiyeköy Pilates Stüdyo ile bağlı değildir.</div>
+  <header>
+    <div class="brand">
+      <h1 id="brandName">Mecidiyeköy<i>.</i></h1>
+      <div class="sub"><span>Pilates Stüdyo</span><span class="chip">ÖRNEK DEMO</span></div>
+    </div>
+  </header>
+
+  <main id="member">
+    <section class="panel chat" aria-label="Sohbet">
+      <div class="chat-head"><span class="live" id="liveTag">Resepsiyon AI, demo</span><span class="cnt" id="chatCount"></span></div>
+      <div id="log" aria-live="polite">
+        <div class="empty-state" id="empty">
+          <span class="k">Örnek üye konuşması</span>
+          <p>Bir üye yazdığında Resepsiyon AI böyle yanıt verir.</p>
+          <button type="button" class="play" id="play">Demoyu izle</button>
+          <small>Ya da aşağıya kendi sorunuzu yazın.</small>
+        </div>
+      </div>
+      <div class="chips" id="chips"></div>
+      <form class="in" id="form" autocomplete="off">
+        <input id="q" type="text" placeholder="Bir soru yazın" aria-label="Mesaj" maxlength="300">
+        <button class="send" id="send" type="submit">Gönder</button>
+      </form>
+    </section>
+
+    <aside class="side">
+      <section class="panel ticket" aria-label="Rezervasyon kartı" id="ticket">
+        <div class="t-top">
+          <div><div class="k">Rezervasyon talebi</div><h2>Rezervasyon Kartı</h2><div class="bar" id="bar"><i></i><i></i><i></i><i></i><i></i></div><span class="chip">ÖRNEK ÜYE VERİSİ</span></div>
+          <div class="count" id="count">0/5</div>
+        </div>
+        <div class="fields" id="fields"></div>
+        <div class="cta">
+          <div id="ctaSlot"></div>
+          <div class="hint" id="ctaHint">Kart tamamlanınca talep stüdyo ekibine iletilir.</div>
+          <button type="button" class="reset" id="again">Demoyu baştan izle</button>
+        </div>
+      </section>
+      <section class="panel info" id="info"></section>
+    </aside>
+  </main>
+
+  <section class="panel closing" aria-label="Gerçek kurulum">
+    <p>Gerçek kurulumda Resepsiyon AI her soruyu WhatsApp'ta ve web'de canlı yanıtlar; program ve fiyat listenizi aldıktan sonra 48 saat içinde hazır olur.</p>
+    <p class="cta-line">İlgileniyorsanız bu mesaja cevap verin.</p>
+  </section>
+  <footer>Demo: Enes Eren tarafından Mecidiyeköy Pilates Stüdyo için hazırlandı. Mecidiyeköy Pilates Stüdyo ile bağlı değildir.</footer>
+</div>
+
+<script type="application/json" id="studio-data">{"handoff": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız.", "sinif_label": "Sınıf", "turns": [{"user": "Merhaba, ben Elif. Perşembe akşamı bir grup dersine katılmak istiyorum.", "reply": "Merhaba Elif, hoş geldin. Grup derslerinde rezervasyon gerekiyor. Perşembe için talebini yazabilirim. Hangi saat uygun?", "booking": {"ad": "Elif", "sinif": null, "gun": "Perşembe", "saat": null, "telefon": null}}, {"user": "18:00 olsun.", "reply": "Perşembe 18:00 için grup dersi talebini yazdım. İptal gerekirse 24 saat önceden haber vermek gerekiyor. Sana ulaşabilmemiz için bir telefon numarası paylaşır mısın?", "booking": {"ad": "Elif", "sinif": "Grup dersi", "gun": "Perşembe", "saat": "18:00", "telefon": null}}, {"user": "Numaram 05XX XXX XX XX.", "reply": "Teşekkürler Elif. Talebin hazır: Grup dersi, Perşembe 18:00. Stüdyo ekibi müsaitliği teyit edip sana dönecek.", "booking": {"ad": "Elif", "sinif": "Grup dersi", "gun": "Perşembe", "saat": "18:00", "telefon": "05XX XXX XX XX"}}], "info": [["Konum", "Fulya, Şişli"], ["Grup dersleri", "Rezervasyon gerekiyor"], ["İptal", "24 saat önceden haber verilmeli"]], "sources": [["benefitsystems.com.tr", "https://benefitsystems.com.tr/en/facilities/mecidiyekoey-pilates-stuedyo/"], ["instagram.com/mecidiyekoypilatess", "https://www.instagram.com/mecidiyekoypilatess/"]]}</script>
+<script type="application/json" id="qa-data">[{"q": "Stüdyo nerede?", "keywords": ["nerede", "konum", "adres", "yer", "fulya", "şişli", "ulaşım", "neresi"], "a": "Stüdyomuz Fulya, Şişli'de bulunuyor."}, {"q": "Grup derslerinde rezervasyon gerekli mi?", "keywords": ["rezervasyon", "randevu", "kayıt", "yer ayırtma", "grup", "ders", "gerekli", "önceden"], "a": "Evet, grup derslerinde rezervasyon gerekiyor."}, {"q": "Rezervasyonumu nasıl iptal ederim?", "keywords": ["iptal", "vazgeçmek", "iptal etmek", "haber", "değişiklik", "gelemeyeceğim", "süre", "24 saat"], "a": "İptaller için dersten en az 24 saat önce haber vermeniz gerekiyor."}, {"q": "Çalışma saatleriniz nedir?", "keywords": ["saat", "çalışma saati", "açık", "kapanış", "açılış", "kaçta", "mesai", "hafta sonu"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Ders ücretleri ne kadar?", "keywords": ["fiyat", "ücret", "ne kadar", "kaç para", "tarife", "ücretler", "tutar", "bedel"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Ders programınız nasıl?", "keywords": ["program", "ders programı", "seans", "hangi gün", "ders saati", "takvim", "çizelge", "plan"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Eğitmenleriniz kimler?", "keywords": ["eğitmen", "hoca", "eğitmenler", "öğretmen", "kadro", "uzman", "antrenör", "ekip"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Derse ne giymeliyim?", "keywords": ["giymek", "kıyafet", "giysi", "ne giyeceğim", "çorap", "tayt", "giyim", "kıyafeti"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Park yeri var mı?", "keywords": ["park", "otopark", "araç", "araba", "park yeri", "otopark var mı", "park imkanı"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Hiç pilates yapmadım, uygun mu?", "keywords": ["başlangıç", "yeni başlayan", "seviye", "acemi", "hiç yapmadım", "deneyim", "uygun", "ilk kez"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "İlk ders deneme olabilir mi?", "keywords": ["ilk ders", "deneme", "tanışma", "ücretsiz", "denemek", "deneme dersi", "misafir", "ilk seans"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Paket ve üyelik seçenekleri var mı?", "keywords": ["paket", "üyelik", "abonelik", "kart", "ders paketi", "aylık", "seçenek", "üye"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Hamileler için ders var mı?", "keywords": ["hamile", "hamilelik", "gebe", "çocuk", "çocuklar", "özel ders", "anne", "bebek"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Kampanya veya indirim var mı?", "keywords": ["kampanya", "indirim", "fırsat", "promosyon", "öğrenci indirimi", "ucuz", "özel teklif", "kupon"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Web siteniz veya Instagram var mı?", "keywords": ["web sitesi", "site", "instagram", "sosyal medya", "hesap", "internet", "takip", "sayfa"], "a": "Instagram hesabımız var, web sitemiz ise yok."}]</script>
+<script>
+(function(){
+'use strict';
+var $=function(s){return document.querySelector(s)};
+var D=JSON.parse($('#studio-data').textContent),QA=JSON.parse($('#qa-data').textContent);
+var HANDOFF=D.handoff,FIELDS=[['ad','Ad',0],['sinif',D.sinif_label,0],['gun','Gün',0],['saat','Saat',0],['telefon','Telefon (örnek)',1]];
+var REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var booking=blank(),busy=false,played=false;
+function blank(){return {ad:null,sinif:null,gun:null,saat:null,telefon:null}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+/* Turkish fold: İ->i, I->ı, lowercase, strip diacritics, ı->i */
+function fold(s){return String(s||'').replace(/İ/g,'i').replace(/I/g,'ı').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ı/g,'i')}
+var STOP={}; 'ders dersi dersin ders ne mi mu var nasil kadar icin bir ve ile bu su siz biz ben bana beni lutfen merhaba selam studyo studyonuz studyoda pilates hangi olur olabilir musunuz misiniz miyim mu yok iyi gunler da de ya ta te'.split(' ').forEach(function(w){STOP[w]=1});
+function toks(s){return fold(s).replace(/['\u2019\u2018`]\w*/g,'').split(/[^a-z0-9]+/).filter(function(t){return t.length>2&&!STOP[t]})}
+function same(a,b){if(a===b)return true;var m=Math.min(a.length,b.length);if(m>=4&&(a.indexOf(b)===0||b.indexOf(a)===0)&&Math.abs(a.length-b.length)<=4)return true;return a.length>=5&&b.length>=5&&a.slice(0,5)===b.slice(0,5)}
+var PRICE=/(^|[^a-z0-9])(fiyat\w*|ucret(?!siz)\w*|kac para|kac tl|tl|lira|paket\w*|uyelik\w*|abonelik\w*|ne kadar|tutar\w*|bedel\w*)([^a-z0-9]|$)/;
+var QT=QA.map(function(p){var set={};p.keywords.forEach(function(k){toks(k).forEach(function(t){set[t]=1})});toks(p.q).forEach(function(t){set[t]=1});return Object.keys(set)});
+function match(text){
+  var f=fold(text);
+  if(PRICE.test(f))return {a:HANDOFF,handoff:true};
+  var q=toks(text),best=-1,bs=0;
+  QT.forEach(function(kw,i){var s=0;q.forEach(function(t){if(kw.some(function(k){return same(t,k)}))s++});if(s>0)s-=kw.length/1000;if(s>bs){bs=s;best=i}});
+  return best>=0?{a:QA[best].a,handoff:QA[best].a.indexOf(HANDOFF)>-1,i:best}:{a:HANDOFF,handoff:true};
+}
+window.__match=match;
+
+/* ---------- animated background (same as the product) ---------- */
+(function(){
+  var cv=$('#bg'),c=cv.getContext('2d'),W,H,t=0,blobs=[
+    {x:.2,y:.25,r:.55,h:'242,169,59',a:.34,sx:.13,sy:.09},{x:.8,y:.7,r:.6,h:'150,70,20',a:.38,sx:.09,sy:.12},
+    {x:.55,y:.1,r:.4,h:'60,70,86',a:.34,sx:.07,sy:.1},{x:.1,y:.9,r:.45,h:'200,110,30',a:.2,sx:.11,sy:.07}];
+  function size(){W=cv.width=Math.max(160,innerWidth>>2);H=cv.height=Math.max(120,innerHeight>>2)}
+  function draw(){c.globalCompositeOperation='source-over';c.fillStyle='#0a0807';c.fillRect(0,0,W,H);c.globalCompositeOperation='lighter';
+    blobs.forEach(function(b,i){var x=(b.x+Math.sin(t*b.sx+i*2)*.18)*W,y=(b.y+Math.cos(t*b.sy+i)*.16)*H,r=b.r*Math.max(W,H);
+      var g=c.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba('+b.h+','+b.a+')');g.addColorStop(1,'rgba('+b.h+',0)');c.fillStyle=g;c.fillRect(0,0,W,H)})}
+  function loop(){t+=.016;draw();if(!REDUCED&&!document.hidden)requestAnimationFrame(loop)}
+  size();addEventListener('resize',function(){size();draw()});draw();
+  if(!REDUCED){requestAnimationFrame(loop);document.addEventListener('visibilitychange',function(){if(!document.hidden)requestAnimationFrame(loop)})}
+})();
+
+/* ---------- static panels ---------- */
+$('#info').innerHTML='<span class="k">Stüdyo bilgisi · herkese açık kaynaklardan</span>'+
+  D.info.map(function(r){return '<span><b>'+esc(r[0])+'</b> '+esc(r[1])+'</span>'}).join('')+
+  '<span class="src"><b>Kaynaklar</b>'+D.sources.map(function(s){return '<a href="'+esc(s[1])+'" target="_blank" rel="noopener noreferrer">'+esc(s[0])+'</a>'}).join('')+'</span>';
+var ch=$('#chips');QA.slice(0,3).forEach(function(p){var b=document.createElement('button');b.type='button';b.textContent=p.q;b.onclick=function(){ask(p.q)};ch.appendChild(b)});
+
+/* ---------- chat ---------- */
+var elLog=$('#log');
+function clearEmpty(){var e=$('#empty');if(e)e.remove()}
+function bubble(cls,text){var d=document.createElement('div');d.className='msg '+cls;d.textContent=text;elLog.appendChild(d);elLog.scrollTop=elLog.scrollHeight;return d}
+function reveal(el,text,cb){
+  if(REDUCED||text.length>400){el.textContent=text;cb&&cb();return}
+  var i=0,step=Math.max(1,Math.ceil(text.length/60));
+  (function tick(){i=Math.min(text.length,i+step);el.textContent=text.slice(0,i);elLog.scrollTop=elLog.scrollHeight;if(i<text.length)setTimeout(tick,16);else cb&&cb()})();
+}
+function typing(on){var t=$('#typing');
+  if(on&&!t){t=document.createElement('div');t.id='typing';t.className='typing';t.innerHTML='<span></span><span></span><span></span>';elLog.appendChild(t);elLog.scrollTop=elLog.scrollHeight}
+  if(!on&&t)t.remove()}
+function paintCard(prev){
+  var box=$('#fields');
+  if(!box.children.length){FIELDS.forEach(function(f){var d=document.createElement('div');d.className='f'+(f[2]?' wide':'');d.innerHTML='<label>'+esc(f[1])+'</label><div class="v">·</div>';box.appendChild(d)})}
+  var n=0,vs=box.querySelectorAll('.v');
+  FIELDS.forEach(function(f,i){var v=vs[i],val=booking[f[0]];
+    if(val){n++;v.textContent=val;v.classList.add('has');if(!prev||prev[f[0]]!==val){v.classList.remove('glow');void v.offsetWidth;v.classList.add('glow')}}
+    else{v.textContent='·';v.classList.remove('has','glow')}});
+  $('#count').textContent=n+'/5';$('#chatCount').textContent=n?'Kart '+n+'/5':'';
+  document.querySelectorAll('#bar i').forEach(function(b,i){b.classList.toggle('on',i<n)});
+  var slot=$('#ctaSlot');
+  if(n===5){slot.innerHTML='<div class="wa done">Talep stüdyo ekibine iletildi (demo, hiçbir şey gönderilmedi).</div>';$('#ctaHint').textContent='Örnek üye verisi: gerçek bir kişi değil.';$('#again').style.display='block'}
+  else{slot.innerHTML='<div class="wa">Talep stüdyoya iletilir</div>';$('#ctaHint').textContent='Kart tamamlanınca talep stüdyo ekibine iletilir.';$('#again').style.display=played?'block':'none'}
+}
+function setBooking(b){var prev=booking;booking=b;paintCard(prev)}
+
+function ask(text){
+  text=String(text||'').trim();if(!text||busy)return;
+  $('#q').value='';clearEmpty();busy=true;$('#send').disabled=true;
+  bubble('me',text);typing(true);
+  var r=match(text);
+  setTimeout(function(){typing(false);var el=bubble('bot'+(r.handoff?' handoff':''),'');
+    reveal(el,r.a,function(){busy=false;$('#send').disabled=false})},REDUCED?0:600);
+}
+$('#form').addEventListener('submit',function(e){e.preventDefault();ask($('#q').value)});
+
+function play(){
+  if(busy)return;busy=true;played=true;$('#send').disabled=true;
+  elLog.innerHTML='';setBooking(blank());
+  bubble('note','Örnek üye konuşması · gerçek bir kişi değil');
+  var i=0;
+  (function next(){
+    if(i>=D.turns.length){busy=false;$('#send').disabled=false;$('#again').style.display='block';
+      if(matchMedia('(max-width:860px)').matches)setTimeout(function(){$('#ticket').scrollIntoView({behavior:REDUCED?'auto':'smooth',block:'start'})},500);return}
+    var t=D.turns[i++];
+    setTimeout(function(){bubble('me script',t.user);typing(true);
+      setTimeout(function(){typing(false);var el=bubble('bot',''); 
+        reveal(el,t.reply,function(){setBooking(t.booking);setTimeout(next,REDUCED?0:900)})},REDUCED?0:800)},REDUCED?0:700);
+  })();
+}
+$('#play').onclick=play;
+$('#again').onclick=function(){if(!busy){elLog.scrollIntoView({block:'nearest'});play()}};
+paintCard(null);
+})();
+</script>
+</body>
+</html>
