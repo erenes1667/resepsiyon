@@ -1,0 +1,208 @@
+[
+ {
+  "q": "Stüdyo nerede?",
+  "keywords": [
+   "nerede",
+   "adres",
+   "konum",
+   "yer",
+   "nereye",
+   "kağıthane",
+   "kâğıthane",
+   "ulaşım"
+  ],
+  "a": "Stüdyomuz Kâğıthane'de."
+ },
+ {
+  "q": "Hangi grup dersleri var?",
+  "keywords": [
+   "ders",
+   "dersler",
+   "grup",
+   "reformer",
+   "mat",
+   "bikinibody",
+   "summer",
+   "challenge",
+   "çeşit",
+   "program"
+  ],
+  "a": "Grup derslerimizde Reformer Pilates, Mat Pilates, Bikinibody ve Summer Challenge var."
+ },
+ {
+  "q": "Çalışma saatleri nedir?",
+  "keywords": [
+   "saat",
+   "saatler",
+   "açık",
+   "kaçta",
+   "kapanış",
+   "açılış",
+   "çalışma",
+   "gün",
+   "hafta",
+   "cumartesi",
+   "pazar"
+  ],
+  "a": "Pazartesi'den Cuma'ya 08:00 ile 22:00 arası açığız."
+ },
+ {
+  "q": "Rezervasyon gerekli mi?",
+  "keywords": [
+   "rezervasyon",
+   "randevu",
+   "yer ayırtma",
+   "kayıt",
+   "gerekli",
+   "zorunlu",
+   "yer ayırmak"
+  ],
+  "a": "Evet, rezervasyon zorunlu. Hangi ders için yer ayırtmak istediğinizi yazarsanız stüdyomuza iletelim."
+ },
+ {
+  "q": "Rezervasyonu iptal edebilir miyim?",
+  "keywords": [
+   "iptal",
+   "vazgeçmek",
+   "değişiklik",
+   "iptal etmek",
+   "erteleme",
+   "ertelemek",
+   "haber",
+   "12 saat"
+  ],
+  "a": "Evet, iptaller için dersten en az 12 saat önce haber vermeniz gerekiyor."
+ },
+ {
+  "q": "Web sitesi ya da Instagram var mı?",
+  "keywords": [
+   "instagram",
+   "site",
+   "web",
+   "internet",
+   "sosyal medya",
+   "hesap",
+   "takip"
+  ],
+  "a": "Stüdyonun kendi web sitesi yok ama Instagram hesabımız var."
+ },
+ {
+  "q": "Ders ücretleri ne kadar?",
+  "keywords": [
+   "fiyat",
+   "ücret",
+   "kaç para",
+   "tl",
+   "ne kadar",
+   "tutar",
+   "maliyet",
+   "bedel"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Paketler ve üyelik var mı?",
+  "keywords": [
+   "paket",
+   "üyelik",
+   "abonelik",
+   "kart",
+   "aylık",
+   "seans",
+   "ders paketi"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Ders programı nasıl?",
+  "keywords": [
+   "program",
+   "takvim",
+   "hangi gün",
+   "ders saati",
+   "saatleri",
+   "tablo",
+   "seans saatleri"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Eğitmenler kimler?",
+  "keywords": [
+   "eğitmen",
+   "hoca",
+   "antrenör",
+   "eğitmenler",
+   "kim",
+   "uzman",
+   "fizyoterapist"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Ne giymeliyim?",
+  "keywords": [
+   "giymek",
+   "kıyafet",
+   "giyim",
+   "çorap",
+   "ne giymeli",
+   "tayt",
+   "getirmek",
+   "ekipman"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Başlangıç seviyesine uygun mu?",
+  "keywords": [
+   "başlangıç",
+   "seviye",
+   "yeni başlayan",
+   "acemi",
+   "hiç yapmadım",
+   "tecrübe",
+   "deneyim"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Deneme dersi var mı?",
+  "keywords": [
+   "deneme",
+   "ilk ders",
+   "ücretsiz",
+   "tanışma",
+   "misafir",
+   "denemek",
+   "ilk seans"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Park yeri var mı?",
+  "keywords": [
+   "park",
+   "otopark",
+   "araç",
+   "araba",
+   "park yeri",
+   "metro",
+   "ulaşım"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Hamile ya da çocuk dersi var mı?",
+  "keywords": [
+   "hamile",
+   "hamilelik",
+   "çocuk",
+   "bebek",
+   "gebe",
+   "çocuklar",
+   "kadın doğum"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ }
+]

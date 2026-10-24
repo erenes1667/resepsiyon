@@ -1,0 +1,210 @@
+[
+ {
+  "q": "Stüdyo nerede?",
+  "keywords": [
+   "nerede",
+   "adres",
+   "konum",
+   "fulya",
+   "şişli",
+   "sisli",
+   "yer",
+   "lokasyon"
+  ],
+  "a": "Stüdyomuz Fulya, Şişli'de."
+ },
+ {
+  "q": "Ne tür dersler var?",
+  "keywords": [
+   "ders",
+   "pilates",
+   "antrenman",
+   "training",
+   "hizmet",
+   "ne var",
+   "egzersiz",
+   "spor"
+  ],
+  "a": "Stüdyomuzda antrenman ve pilates sunuyoruz."
+ },
+ {
+  "q": "Ücretsiz deneme dersi var mı?",
+  "keywords": [
+   "ücretsiz",
+   "ucretsiz",
+   "deneme",
+   "denemek",
+   "bedava",
+   "deneme dersi",
+   "tanışma",
+   "randevu"
+  ],
+  "a": "Web sitemizde ücretsiz deneme düğmesi var, düğme sizi iletişim sayfamıza yönlendiriyor. Oradan bize ulaşabilirsiniz."
+ },
+ {
+  "q": "Fiyatlar nedir?",
+  "keywords": [
+   "fiyat",
+   "ücret",
+   "ucret",
+   "kaç para",
+   "ne kadar",
+   "tl",
+   "tutar",
+   "bedel"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Çalışma saatleri nedir?",
+  "keywords": [
+   "saat",
+   "çalışma saatleri",
+   "açık",
+   "kapanış",
+   "kaçta",
+   "mesai",
+   "hafta sonu",
+   "pazar"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Ders programı var mı?",
+  "keywords": [
+   "program",
+   "ders programı",
+   "takvim",
+   "hangi gün",
+   "seans",
+   "ders saatleri",
+   "grup dersi"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Eğitmenleriniz kimler?",
+  "keywords": [
+   "eğitmen",
+   "egitmen",
+   "hoca",
+   "antrenör",
+   "antrenor",
+   "trainer",
+   "kadro",
+   "uzman"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Derse ne giymeliyim?",
+  "keywords": [
+   "giymek",
+   "kıyafet",
+   "kiyafet",
+   "giysi",
+   "çorap",
+   "ne giy",
+   "ekipman",
+   "getirmek"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Park yeri var mı?",
+  "keywords": [
+   "park",
+   "otopark",
+   "araç",
+   "arac",
+   "park yeri",
+   "vale",
+   "arabayla"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Yeni başlayanlar için uygun mu?",
+  "keywords": [
+   "başlangıç",
+   "baslangic",
+   "yeni başlayan",
+   "seviye",
+   "acemi",
+   "tecrübe",
+   "deneyim",
+   "hiç yapmadım"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Paketler ve üyelik nasıl?",
+  "keywords": [
+   "paket",
+   "üyelik",
+   "uyelik",
+   "abonelik",
+   "kaç ders",
+   "aylık",
+   "seans paketi",
+   "üye"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Hamile ya da çocuk dersi var mı?",
+  "keywords": [
+   "hamile",
+   "hamilelik",
+   "çocuk",
+   "cocuk",
+   "gebe",
+   "anne",
+   "bebek",
+   "yaş"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Kampanya veya indirim var mı?",
+  "keywords": [
+   "kampanya",
+   "indirim",
+   "fırsat",
+   "firsat",
+   "promosyon",
+   "öğrenci",
+   "ogrenci",
+   "kupon"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Üyeliği dondurabilir miyim?",
+  "keywords": [
+   "dondur",
+   "dondurma",
+   "iptal",
+   "ders iptali",
+   "erteleme",
+   "ertelemek",
+   "değişiklik",
+   "telafi"
+  ],
+  "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."
+ },
+ {
+  "q": "Sosyal medya hesabınız var mı?",
+  "keywords": [
+   "instagram",
+   "sosyal medya",
+   "web sitesi",
+   "site",
+   "hesap",
+   "takip",
+   "paylaşım",
+   "sayfa"
+  ],
+  "a": "Evet, stüdyomuzun kendi web sitesi ve Instagram hesabı var."
+ }
+]

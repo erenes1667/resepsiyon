@@ -1,0 +1,32 @@
+{
+ "files": {
+  "beform-pilates-levent/index.html": "9831760cfeb7a7998a332a6d7a528a2daaa43e8c9529f73eb4078f9793e754c8",
+  "beform-pilates-levent/logo.png": "6e63d38c1bd79ef9ca7e0a1a223f77d86a34e0742d60ac6e10a5ad5f48c22f60",
+  "beform-pilates-levent/og.png": "a1d3e0b05880861efadf3c19515ba2e648de05469ab71624b0b919cb26c8ac6f",
+  "beform-pilates-levent/qa.json": "71718e4b49137f1085f7afe11ec194f1244d4f9d00a27d684c280572360e244d",
+  "espilates-besiktas/index.html": "f4509388b2673357e74c3ae865ad7d191129d22a933c18aff43670a03ac81d25",
+  "espilates-besiktas/logo.png": "f1454437e5a9400b9c266171695a5858109e03280c0e13f00e4741ed50337c2f",
+  "espilates-besiktas/og.png": "4dcfbbc90e8a5332747ce42f3bc6d43c5bbd6dd8d4811c013de8bdca8a39ecd7",
+  "espilates-besiktas/qa.json": "2ceef75908192ea5a8d0fae8b815e55b48e19f1382d682b366dac496006228cd",
+  "fizyohaus-kagithane/index.html": "c86009fb699fa56cb45e0031fc3060b4cffc644901a715da5623bdf6346fe348",
+  "fizyohaus-kagithane/logo.png": "7d5c2f66175d8f60a810e62bdab33c4b4bbe4624f246ee13b52259878a2cf7c8",
+  "fizyohaus-kagithane/og.png": "5079273a462bf17b53cd5bd4424b0c1397192e38ec63890d2ce71a545b8831b2",
+  "fizyohaus-kagithane/qa.json": "d7b31c31a395446545049ffe4b408d53740ae89cc483fa4b820cb3c0f197aba6",
+  "index.html": "c05b2c8faf491c0f3ed8c4edfce4c2f6c692f8eef636e3215ce6959546b39687",
+  "mecidiyekoy-pilates-studyo/index.html": "954e10bb9d086d4e8f8714e12ffb5c11f9d4e83decb60385ff6bb5f6ba3f9f92",
+  "mecidiyekoy-pilates-studyo/logo.png": "e8d71a3a40b5814acfb41eb7c6a1126ec8838b5c869ab2bb9a0ee756d53c8b64",
+  "mecidiyekoy-pilates-studyo/og.png": "18c04429feb99571e455748f3c82bb6b8e5bc0a8dee44179b11af74df3d6f873",
+  "mecidiyekoy-pilates-studyo/qa.json": "1ecac13679ccd3a3569afc92495d1a77ae6e77c8a18507c559586b72f7c1a7b8",
+  "taps-pilates/index.html": "59cd555aa6053f97ab2e2ff0df793d08c4c00a6893c9c698be86b9bafcf5feac",
+  "taps-pilates/og.png": "3e59d6528dffcca6f307d68a18829c3c091680ec5cdcb6651b5654efb292eb5c",
+  "taps-pilates/qa.json": "cdc2f35293c350856b25a85093db55e22f0a18d67230719674140ea5b2edf448"
+ },
+ "round": 4,
+ "scores": {
+  "looks": 8.0,
+  "words": 8.7,
+  "works": 8.6
+ },
+ "stamped_at": "2026-10-24T21:17:55Z",
+ "threshold": 8
+}

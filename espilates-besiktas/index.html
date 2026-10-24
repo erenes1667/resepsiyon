@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0a0807">
-<title>Resepsiyon AI demosu, Espilates Beşiktaş Pilates Stüdyosu</title>
-<meta name="description" content="Üyelerin sorularını yanıtlayan ve rezervasyon talebi toplayan Türkçe AI resepsiyonist. Espilates Beşiktaş Pilates Stüdyosu için hazırlanmış örnek demo.">
+<title>Ön Masa demosu, Espilates Beşiktaş Pilates Stüdyosu</title>
+<meta name="description" content="Üyelerin sorularını yanıtlayan ve rezervasyon talebi toplayan Türkçe yapay zekâ resepsiyonist. Espilates Beşiktaş Pilates Stüdyosu için hazırlanmış örnek demo.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
-<meta property="og:title" content="Resepsiyon AI: Espilates Beşiktaş Pilates Stüdyosu için demo">
-<meta property="og:description" content="Üyelerin sorularını yanıtlayan ve rezervasyon talebi toplayan Türkçe AI resepsiyonist. Espilates Beşiktaş Pilates Stüdyosu için hazırlanmış örnek demo.">
+<meta property="og:title" content="Ön Masa: Espilates Beşiktaş Pilates Stüdyosu için demo">
+<meta property="og:description" content="Üyelerin sorularını yanıtlayan ve rezervasyon talebi toplayan Türkçe yapay zekâ resepsiyonist. Espilates Beşiktaş Pilates Stüdyosu için hazırlanmış örnek demo.">
 <meta property="og:image" content="https://erenes1667.github.io/resepsiyon/espilates-besiktas/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -18,287 +18,338 @@
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Hanken+Grotesk:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0a0807; --bg2:#110e0b; --ink:#f1e8d8; --dim:#8d8374; --faint:#4d453b;
-  --amber:#f2a93b; --amber-soft:rgba(242,169,59,.14); --line:rgba(241,232,216,.1);
-  --panel:rgba(20,16,12,.62); --serif:'Cormorant Garamond',Georgia,serif;
-  --sans:'Hanken Grotesk',system-ui,sans-serif; --mono:'DM Mono',ui-monospace,monospace;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;filter:blur(28px) saturate(1.1)}
+:root{--bg:#0a0807;--ink:#f3eadb;--mid:#cfc5b5;--dim:#a89e8f;--faint:#857b6d;--acc:242,169,59;--amber:rgb(var(--acc));--wa:#25d366;--line:rgba(255,255,255,.09);--bar:76px;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{min-height:100dvh;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(520px 520px at 50% 30%,rgba(var(--acc),.17),transparent 70%),radial-gradient(130% 100% at 50% 50%,transparent 50%,rgba(0,0,0,.6))}
+body::after{content:"";position:fixed;z-index:0;pointer-events:none;display:none;left:60%;bottom:-120px;width:620px;height:260px;border-radius:50%;background:rgba(var(--acc),.22);filter:blur(70px)}
 .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-button,input,textarea{font:inherit;color:inherit}
-button{cursor:pointer}
-:focus-visible{outline:1px solid var(--amber);outline-offset:3px}
-.app{position:relative;z-index:2;min-height:100%;display:flex;flex-direction:column;padding:max(18px,env(safe-area-inset-top)) clamp(16px,3.2vw,48px) max(18px,env(safe-area-inset-bottom))}
-header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding-bottom:14px}
-.brand{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
-.brand h1{font-family:var(--serif);font-weight:300;font-size:clamp(52px,7.4vw,104px);line-height:.82;letter-spacing:-.02em}
-.brand h1 i{color:var(--amber);font-style:italic}
-.brand .sub{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);display:flex;flex-direction:column;gap:6px}
-.chip{display:inline-block;border:1px solid var(--amber);color:var(--amber);padding:2px 8px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;width:max-content}
-main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(14px,2vw,28px)}
-.panel{background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);min-height:0}
-/* chat */
-.chat{display:flex;flex-direction:column;min-height:0}
-.chat-head{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
-.live{display:inline-flex;align-items:center;gap:8px}
-.live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber);animation:pulse 2.4s ease-in-out infinite}
-.live.off::before{background:var(--faint);box-shadow:none;animation:none}
-@keyframes pulse{50%{opacity:.35}}
-#log{flex:1;min-height:0;overflow-y:auto;padding:20px 18px;display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth}
-.msg{max-width:84%;padding:10px 14px;font-size:15px;line-height:1.5;animation:rise .45s cubic-bezier(.2,.7,.2,1) both;white-space:pre-wrap;overflow-wrap:anywhere}
-@keyframes rise{from{opacity:0;transform:translateY(8px)}}
-.msg.bot{align-self:flex-start;border-left:2px solid var(--amber);padding-left:14px;color:var(--ink)}
-.msg.me{align-self:flex-end;background:rgba(241,232,216,.07);border:1px solid var(--line);color:var(--ink)}
-.msg.note{align-self:center;max-width:100%;text-align:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);padding:2px}
-.msg.handoff{border-left-color:var(--dim);color:var(--dim)}
-.typing{align-self:flex-start;display:flex;gap:5px;padding:12px 14px;border-left:2px solid var(--amber)}
-.typing span{width:5px;height:5px;background:var(--amber);border-radius:50%;animation:bounce 1s infinite ease-in-out}
-.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
-@keyframes bounce{0%,80%,100%{opacity:.25;transform:none}40%{opacity:1;transform:translateY(-4px)}}
-.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 12px}
-.chips button{background:none;border:1px solid var(--line);color:var(--dim);padding:6px 12px;font-size:13px;transition:.2s}
-.chips button:hover{border-color:var(--amber);color:var(--ink)}
-form.in{display:flex;gap:8px;padding:12px 18px 16px;border-top:1px solid var(--line);align-items:center}
-form.in input{flex:1;min-width:0;background:rgba(0,0,0,.35);border:1px solid var(--line);padding:12px 14px;outline:none;transition:border-color .2s}
-form.in input:focus{border-color:var(--amber)}
-.send{background:var(--ink);color:#120d07;border:0;padding:0 20px;height:46px;font-weight:600;letter-spacing:.04em;transition:.2s}
-.send:hover{background:var(--amber)}
-.send:disabled{opacity:.4}
-/* ticket */
-.side{display:flex;flex-direction:column;gap:14px;min-height:0;overflow-y:auto}
-.ticket{position:relative;padding:22px 22px 20px;overflow:hidden}
-.ticket::before,.ticket::after{content:"";position:absolute;top:96px;width:18px;height:18px;border-radius:50%;background:var(--bg);border:1px solid var(--line)}
-.ticket::before{left:-10px}.ticket::after{right:-10px}
-.t-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding-bottom:26px;border-bottom:1px dashed rgba(241,232,216,.18)}
-.t-top .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--dim);text-transform:uppercase}
-.t-top h2{font-family:var(--serif);font-weight:300;font-size:34px;line-height:1;margin-top:6px}
-.count{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.1em}
-.bar{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-top:10px}
-.bar i{height:2px;background:var(--faint);transition:.5s}
-.bar i.on{background:var(--amber);box-shadow:0 0 10px var(--amber)}
-.fields{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;padding-top:24px}
-.f.wide{grid-column:1/-1}
-.f label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
-.f .v{font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1;min-height:38px;font-family:var(--serif);font-size:30px;font-weight:300;line-height:1.1;color:var(--faint);border-bottom:1px solid var(--line);padding-bottom:5px;overflow-wrap:anywhere;transition:color .4s,border-color .4s}
-.f .v.has{color:var(--ink);border-color:var(--amber)}
-.f .v.glow{animation:glow 1.6s ease-out}
-@keyframes glow{0%{color:#fff;text-shadow:0 0 28px var(--amber),0 0 8px var(--amber);background:linear-gradient(90deg,var(--amber-soft),transparent)}100%{text-shadow:0 0 0 transparent}}
-.cta{margin-top:24px;display:flex;flex-direction:column;gap:10px}
-.wa{display:block;text-align:center;padding:14px;font-weight:600;letter-spacing:.04em;text-decoration:none;border:1px solid var(--line);color:var(--dim);background:none;width:100%}
-a.wa{background:var(--amber);color:#150e04;border-color:var(--amber);box-shadow:0 0 30px rgba(242,169,59,.35);transition:.2s}
-a.wa:hover{filter:brightness(1.1)}
-.hint{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--dim);text-align:center}
-.reset{background:none;border:0;color:var(--dim);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px dotted var(--faint);align-self:center;display:none}
-.info{padding:16px 20px;font-size:13px;color:var(--dim);display:grid;gap:4px}
-.info b{color:var(--ink);font-weight:500}
-.info .k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber)}
-/* owner */
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.wrap{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 16px calc(var(--bar) + 12px + env(safe-area-inset-bottom))}
+/* phone: the header and the chat share the viewport above the fixed bar, so the chips never hide under it */
+.screen{display:flex;flex-direction:column;height:calc(100dvh - var(--bar) - env(safe-area-inset-bottom));min-height:480px}
+.brand{flex:none;padding:10px 0 8px}
+.brand .eyebrow{margin:0 0 8px;font-size:13px;line-height:1.3;letter-spacing:.03em;color:var(--amber);font-weight:600}
+.brand-row{display:flex;align-items:center;gap:12px}
+.blogo{flex:none;display:none;width:40px;height:40px;border-radius:50%;object-fit:cover;background:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+.brand .studio{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(28px,8.4vw,34px);line-height:1;letter-spacing:-.02em;font-variant-numeric:lining-nums;overflow-wrap:anywhere}
+.brand .studio i{color:var(--amber);font-style:normal}
+.brand .studio.long{font-size:clamp(24px,7vw,30px)}
+.brand .studio.wm{display:flex;align-items:center}.brand .studio.wm svg{height:.78em;width:auto;display:block}
+.brand .rest{margin:3px 0 0;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.brand .lede-m{margin:8px 0 0;font-size:15.5px;line-height:1.35;color:var(--mid)}
+.brand h1{display:none;margin:10px 0 0;font-family:var(--serif);font-weight:400;font-size:clamp(32px,2.7vw,40px);line-height:1.1;letter-spacing:-.005em;text-wrap:balance;max-width:20ch}
+.brand .lede{display:none;margin:8px 0 0;font-size:14.5px;line-height:1.4;color:var(--dim);max-width:46ch}
+.brand .lede b{font-weight:600;color:var(--ink)}
+#cardSide{display:none}
 
-.app{min-height:100%;height:auto}
-.demobar{border:1px solid rgba(242,169,59,.4);background:var(--amber-soft);padding:9px 14px;margin-bottom:14px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;line-height:1.55;color:var(--ink)}
-.demobar b{color:var(--amber);font-weight:500;letter-spacing:.14em;margin-right:6px}
-header{align-items:flex-end;padding-bottom:16px}
-.brand h1{font-size:clamp(46px,6.2vw,88px)}
-.brand .sub{font-size:11px}
-.chat-head .cnt{color:var(--amber)}
-.empty-state{margin:auto;max-width:340px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;padding:10px 0}
-.empty-state .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
-.empty-state p{font-family:var(--serif);font-weight:300;font-size:25px;line-height:1.2}
-.play{background:var(--amber);color:#150e04;border:0;padding:15px 26px;font-weight:600;letter-spacing:.05em;font-size:16px;box-shadow:0 0 32px rgba(242,169,59,.38);transition:.2s;min-height:48px}
-.play:hover{filter:brightness(1.1)}
-.empty-state small{font-size:12.5px;color:var(--dim)}
-.msg.me.script{background:rgba(242,169,59,.08);border-color:rgba(242,169,59,.28)}
-.wa.done{background:var(--amber-soft);color:var(--ink);border-color:rgba(242,169,59,.5);font-weight:500;font-size:14px;line-height:1.45}
-.chip.s{margin-left:0}
-.t-top .chip{margin-top:8px}
-.info a{color:var(--amber);text-decoration:none;border-bottom:1px dotted rgba(242,169,59,.5);overflow-wrap:anywhere}
-.info .src{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:2px}
-.reset{display:none}
-.closing{margin-top:clamp(14px,2vw,28px);padding:28px clamp(18px,3vw,40px);display:grid;gap:12px;max-width:880px}
-.closing p{font-family:var(--serif);font-weight:300;font-size:clamp(22px,2.6vw,30px);line-height:1.28}
-.closing p.cta-line{color:var(--amber);font-style:italic}
-footer{padding:18px 0 4px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;line-height:1.6;color:var(--dim)}
-main{display:flex;flex-direction:column}
-.chat{height:min(66vh,560px);flex:none}
-.side{overflow:visible}
-header{flex-direction:column;align-items:flex-start}
-.msg{max-width:92%}
-.fields{gap:16px 14px}
-.f .v{font-size:26px}
-@media (min-width:861px){
-  header{flex-direction:row;align-items:flex-end}
-  main{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);height:clamp(520px,calc(100vh - 210px),740px)}
-  .chat{height:auto;flex:initial}
-  .side{overflow-y:auto}
-  .msg{max-width:84%}
-  .fields{gap:20px 18px}
-  .f .v{font-size:30px}
+.phone{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden;margin:0 -16px;
+background:linear-gradient(180deg,#171210,#0d0a08);border-top:1px solid rgba(var(--acc),.35);border-bottom:1px solid rgba(var(--acc),.2)}
+.phone::before{content:"";position:absolute;left:0;right:0;top:0;height:140px;pointer-events:none;background:linear-gradient(180deg,rgba(var(--acc),.09),transparent)}
+.ph-head{flex:none;display:flex;align-items:center;gap:10px;padding:8px 14px;border-bottom:1px solid var(--line);position:relative}
+.av{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;overflow:hidden;background:#fff}
+.av img{display:block;width:100%;height:100%;object-fit:cover}
+.av.wm{background:#171210;border:1px solid rgba(var(--acc),.6);color:var(--ink)}.av.wm svg{display:block;height:19px;width:auto}
+.who{min-width:0;line-height:1.2}
+.who b{display:block;font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.who span{display:block;font-size:14px;color:var(--mid);line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.who span::before{content:"";display:inline-block;vertical-align:middle;margin:-2px 6px 0 0;width:7px;height:7px;border-radius:50%;background:var(--amber)}
+.again{flex:none;display:inline-flex;align-items:center;gap:7px;margin-left:auto;min-height:44px;padding:0 13px;border-radius:22px;border:1px solid rgba(var(--acc),.7);background:transparent;color:var(--amber);font-size:13.5px;font-weight:600;white-space:nowrap}
+.again svg{width:17px;height:17px;flex:none}
+@media (max-width:429px){.again{width:44px;padding:0;justify-content:center}.again span{display:none}}
+.again[hidden]{display:none}
+.again:hover{background:rgba(var(--acc),.12)}
+
+/* booking card: a compact bar above the chat on phones, a full card on desktop */
+#cardDock{flex:none;padding:8px 10px;border-bottom:1px solid var(--line)}
+.bk{position:relative;border:1px solid rgba(var(--acc),.3);border-radius:14px;padding:9px 12px;background:linear-gradient(160deg,rgba(var(--acc),.1),rgba(255,255,255,.03));transition:box-shadow .5s,border-color .5s}
+#cardDock .bk{cursor:pointer;min-height:44px}
+#cardDock .bk:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.bk-top{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:20px}
+.bk-t{display:flex;align-items:center;gap:7px;min-width:0;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);white-space:nowrap;overflow:hidden}
+.bk-t .sum{text-transform:none;letter-spacing:0;color:var(--ink);font-weight:500;overflow:hidden;text-overflow:ellipsis}
+.bk-t .sum:empty{display:none}
+.bk-n{flex:none;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--amber);letter-spacing:.06em}
+.bk-n svg{width:14px;height:14px;transition:transform .3s}
+.bk:not(.compact) .bk-n svg{transform:rotate(180deg)}
+#cardSide .bk-n svg{display:none}
+.bk .t2,.bk .ck{display:none}
+.bk.done .t1{display:none}.bk.done .t2{display:inline;color:var(--amber);font-weight:600}.bk.done .ck{display:block}
+.ck{flex:none;width:16px;height:16px;color:var(--amber)}
+.ck polyline{stroke-dasharray:24;stroke-dashoffset:24;animation:draw .5s .1s forwards ease-out}
+.bk-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin:7px 0 0}
+.bk-bar i{height:3px;border-radius:2px;background:rgba(255,255,255,.12)}
+.bk-bar i.on{background:var(--amber);box-shadow:0 0 10px rgba(var(--acc),.7)}
+.bk-g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px;margin-top:12px}
+.bk.compact .bk-g,.bk.compact .bk-foot,.bk.blank [data-n]{display:none}
+.bk .f{grid-column:span 4;min-width:0;border-bottom:1px solid rgba(255,255,255,.16);padding-bottom:5px;transition:border-color .4s}
+.bk .f.w8{grid-column:span 8}.bk .f.w5{grid-column:span 5}.bk .f.w3{grid-column:span 3}
+.bk .f label{display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:2px;white-space:nowrap}
+.bk .f.has label{color:var(--dim)}
+.bk .v{font-variant-numeric:lining-nums;font-size:15px;font-weight:500;line-height:1.25;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:19px}
+.bk .v:empty::before{content:"";display:block;width:22px;height:2px;margin:9px 0 8px;border-radius:1px;background:rgba(255,255,255,.18)}
+.bk .v.glow{animation:fill .7s ease-out}
+.bk .f.has{border-color:rgba(var(--acc),.6)}
+.bk-foot{margin-top:10px;font-size:13px;color:var(--faint)}
+.bk.done{border-color:var(--amber);box-shadow:0 0 36px rgba(var(--acc),.28);animation:stamp .55s cubic-bezier(.2,.9,.3,1.2)}
+
+/* chat */
+.log{position:relative;flex:1;min-height:0;overflow-y:auto;padding:18px 14px 10px;display:flex;flex-direction:column;gap:10px;scrollbar-width:none;overscroll-behavior:contain;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 24px);mask-image:linear-gradient(180deg,transparent 0,#000 24px)}
+.log::-webkit-scrollbar{display:none}
+.msg{max-width:88%;padding:10px 14px;border-radius:18px;font-size:16px;line-height:1.42;border:1px solid var(--line);overflow-wrap:anywhere;animation:pop .28s ease-out both}
+.msg.bot{align-self:flex-start;background:rgba(255,255,255,.06);border-radius:18px 18px 18px 4px}
+.msg.me{align-self:flex-end;background:linear-gradient(180deg,rgba(var(--acc),.22),rgba(var(--acc),.12));border-color:rgba(var(--acc),.4);border-radius:18px 18px 4px 18px}
+.note{align-self:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);background:rgba(255,255,255,.08);padding:6px 13px;border-radius:20px}
+.note.sell{font-family:var(--serif);font-size:22px;letter-spacing:0;text-transform:none;color:var(--amber);background:none;padding:4px 0 0}
+.typing{align-self:flex-start;display:flex;gap:5px;padding:13px 16px;border-radius:18px 18px 18px 4px;background:rgba(255,255,255,.06);border:1px solid var(--line)}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--dim);animation:bounce 1s infinite ease-in-out}
+.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
+/* start: the first message waits faintly, the line says what happens next, one tap starts it */
+.start{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 18px 20px;text-align:center;background:radial-gradient(70% 60% at 50% 70%,rgba(var(--acc),.14),transparent 70%)}
+.start .go{display:flex;flex-direction:column;align-items:center;gap:14px;margin:auto 0 clamp(14px,7vh,56px)}
+.start .msg{align-self:flex-end;opacity:.6;animation:none;text-align:left;margin-bottom:14px}
+.start p{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(26px,7.2vw,32px);line-height:1.1;max-width:320px;letter-spacing:-.01em;text-wrap:balance}
+/* outline on purpose: the WhatsApp CTA is the only filled button on the page */
+.play{position:relative;display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 26px 0 20px;border:1.5px solid var(--amber);border-radius:40px;background:transparent;color:var(--amber);font-weight:600;font-size:16.5px;letter-spacing:.02em;margin-top:4px}
+.play::before{content:"";width:0;height:0;border-left:12px solid var(--amber);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.play::after{content:"";position:absolute;inset:-6px;border-radius:44px;border:2px solid var(--amber);opacity:0;animation:ring 2.2s infinite ease-out}
+.play:hover{background:rgba(var(--acc),.12)}
+.play:focus-visible,.chips button:focus-visible,.again:focus-visible,a:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+/* chips wrap to a second row so every answer is visible at 360 without a scroll; each pill is a 44px tap target */
+.chips{flex:none;position:relative;display:flex;flex-wrap:wrap;gap:8px;padding:6px 14px 6px}
+.chips button{position:relative;flex:none;min-height:44px;padding:0 14px;border-radius:22px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);font-size:14px;font-weight:500;color:var(--ink);white-space:nowrap;transition:border-color .2s,background .2s}
+.chips button:hover:not(:disabled){border-color:rgba(var(--acc),.6)}
+.chips button.asked{border-color:rgba(var(--acc),.5);color:var(--amber);background:rgba(var(--acc),.08)}
+.chips button:disabled,.again:disabled{opacity:.45;cursor:default}
+
+/* below the fold on phones: closing, sources */
+.close{display:none}
+.closing{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(26px,2.3vw,34px);line-height:1.2}
+a.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;margin-top:14px;padding:0 24px;border-radius:40px;background:var(--wa);color:#07140b;font-weight:600;font-size:16.5px;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+a.cta svg{width:22px;height:22px;flex:none}
+a.cta:hover{filter:brightness(1.06)}
+.cta-bar{position:fixed;z-index:5;left:0;right:0;bottom:0;height:calc(var(--bar) + env(safe-area-inset-bottom));padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(10,8,7,0),var(--bg) 35%)}
+.cta-bar a.cta{display:flex;width:100%;margin:0}
+.end{display:flex;flex-direction:column;gap:4px;padding:16px 0 0}
+.end p{margin:0;font-size:13px;line-height:1.45;color:var(--faint)}
+.end .src{display:flex;flex-wrap:wrap;align-items:center;gap:0 14px}
+.end .src a{display:inline-flex;align-items:center;min-height:44px;margin:-8px 0;color:var(--dim);text-decoration:none;overflow-wrap:anywhere}
+.end .src a:hover{text-decoration:underline}
+
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes bounce{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-5px);opacity:1}}
+@keyframes ring{0%{opacity:.7;transform:scale(.96)}100%{opacity:0;transform:scale(1.18)}}
+@keyframes fill{0%{color:var(--amber);text-shadow:0 0 18px rgba(var(--acc),.9)}100%{text-shadow:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes stamp{0%{transform:scale(.97)}60%{transform:scale(1.015)}100%{transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* short phones (360x640): the phone head already names the studio, so the brand block goes and the chat gets the height */
+@media (max-width:899px) and (max-height:700px){.brand{padding:8px 0 6px}.brand .eyebrow{margin:0}.brand-row,.brand .rest,.brand .lede-m{display:none}.ph-head{padding:6px 14px}#cardDock{padding:6px 10px}}
+
+@media (min-width:900px){
+.screen{display:contents}
+.wrap{display:grid;grid-template-columns:minmax(0,1fr) 450px;grid-template-areas:"brand phone" "card phone" "close phone" "end phone";column-gap:64px;row-gap:14px;align-content:center;min-height:100dvh;padding:16px 32px;grid-template-rows:auto auto auto auto}
+body::before{background:radial-gradient(600px 600px at 76% 50%,rgba(var(--acc),.18),transparent 70%),radial-gradient(130% 100% at 50% 50%,transparent 50%,rgba(0,0,0,.6))}
+body::after{display:block}
+.brand{grid-area:brand;align-self:end;padding:0}
+.brand .eyebrow{font-size:14px;margin-bottom:12px}
+.brand-row{gap:20px}
+.blogo{display:block;width:88px;height:88px}
+.brand .studio{font-size:clamp(56px,5.6vw,80px)}
+.brand .studio.long{font-size:clamp(44px,4.1vw,58px)}
+.brand .rest{font-size:14px;margin-top:6px}
+.brand h1{display:block}
+.brand .lede{display:block;font-size:16.5px;line-height:1.45;margin-top:10px}
+.brand .lede-m{display:none}
+#cardDock{display:none}
+#cardSide{display:block;grid-area:card}
+#cardSide .bk{padding:14px 22px 13px;border-radius:22px}
+#cardSide .bk-n{font-size:16px}
+#cardSide .bk-bar{margin:12px 0 14px;gap:6px}
+#cardSide .bk-bar i{height:4px}
+#cardSide .bk-g{gap:16px 22px;margin-top:0}
+#cardSide .f label{margin-bottom:4px}
+#cardSide .v{font-size:21px;line-height:1.2;min-height:26px}
+#cardSide .v:empty::before{width:30px;margin:12px 0 10px}
+#cardSide .f{padding-bottom:8px}
+#cardSide .f:nth-child(3){grid-column:span 3}#cardSide .f.w3{grid-column:span 3}#cardSide .f.w5{grid-column:span 6}
+#cardSide .bk-foot{margin-top:12px}
+#cardSide .bk.blank .bk-g{display:none}#cardSide .bk.blank .bk-foot{opacity:.4}
+/* a real bezel, no notch: 6px frame plus a 1px inner line */
+.phone{grid-area:phone;flex:none;margin:0;border-radius:44px;border:6px solid #1b1714;height:clamp(560px,calc(100dvh - 96px),780px);align-self:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 30px 90px -10px rgba(var(--acc),.3),0 60px 120px -30px rgba(0,0,0,.9);transition:box-shadow .6s}
+.phone.ok{box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 0 0 3px rgba(var(--acc),.25),0 30px 90px -10px rgba(var(--acc),.3),0 60px 120px -30px rgba(0,0,0,.9)}
+.ph-head{padding:18px 20px 12px;gap:12px}
+.av{width:42px;height:42px}.av.wm svg{height:22px}
+.who b{font-size:16px}
+.start{padding:24px 24px 40px}
+.start .go{margin-top:auto}
+.msg{font-size:16.5px}
+.chips{padding:8px 16px 16px}
+.chips button{min-height:44px;padding:0 15px}
+.close{display:block;grid-area:close;align-self:start}
+.cta-bar{display:none}
+.end{grid-area:end;padding:0}
+.wrap{padding-bottom:18px}
 }
+@media (min-width:900px) and (max-height:820px){.brand .studio{font-size:56px}.brand h1{font-size:30px}.brand .lede{display:none}#cardSide .v{font-size:19px;min-height:24px}.wrap{row-gap:12px}}
+/* short desktop windows: the WhatsApp CTA stays on screen, pinned bottom left, the footer scrolls under it */
+@media (min-width:900px) and (max-height:700px){.close{position:fixed;left:32px;bottom:20px;z-index:5;margin:0}.closing{font-size:22px}.end{padding-bottom:130px}}
 </style>
+<style>:root{--acc:117,185,72}</style>
 </head>
 <body>
-<canvas id="bg" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div>
-<div class="app">
-  <div class="demobar" role="note">Demo: Enes Eren tarafından Espilates Beşiktaş Pilates Stüdyosu için hazırlandı. Espilates Beşiktaş Pilates Stüdyosu ile bağlı değildir.</div>
-  <header>
-    <div class="brand">
-      <h1 id="brandName">Espilates<i>.</i></h1>
-      <div class="sub"><span>Beşiktaş Pilates Stüdyosu</span><span class="chip">ÖRNEK DEMO</span></div>
-    </div>
+<div class="grain" aria-hidden="true"></div>
+<div class="wrap">
+  <div class="screen">
+  <header class="brand">
+    <p class="eyebrow">Ön Masa demosu · Enes Eren&#x27;den</p>
+    <div class="brand-row"><img class="blogo" src="logo.png" alt="" width="64" height="64"><p class="studio">Espilates<i>.</i></p></div>
+    <p class="rest">Beşiktaş Pilates Stüdyosu</p>
+    <p class="lede-m">Siz derstesiniz, o yanıtlar.</p>
+    <h1>WhatsApp mesajı, hazır rezervasyon talebi olur</h1>
+    <p class="lede"><b>Ön Masa</b>, stüdyonuzun yapay zekâ resepsiyonisti. Siz derstesiniz, o yanıtlar.</p>
   </header>
-
-  <main id="member">
-    <section class="panel chat" aria-label="Sohbet">
-      <div class="chat-head"><span class="live" id="liveTag">Resepsiyon AI, demo</span><span class="cnt" id="chatCount"></span></div>
-      <div id="log" aria-live="polite">
-        <div class="empty-state" id="empty">
-          <span class="k">Örnek üye konuşması</span>
-          <p>Bir üye yazdığında Resepsiyon AI böyle yanıt verir.</p>
-          <button type="button" class="play" id="play">Demoyu izle</button>
-          <small>Ya da aşağıya kendi sorunuzu yazın.</small>
-        </div>
+  <section class="phone" aria-label="Örnek sohbet">
+    <div class="ph-head"><span class="av" aria-hidden="true"><img src="logo.png" alt="" width="42" height="42"></span><div class="who"><b>Espilates</b><span>Yapay zekâ resepsiyonist</span></div><button type="button" class="again" id="again" hidden aria-label="Baştan izle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 3 3 9 9 9"/></svg><span>Baştan izle</span></button></div>
+    <div id="cardDock"></div>
+    <div class="log" id="log" aria-live="polite">
+      <div class="start" id="start">
+        <div class="msg me" aria-hidden="true">Merhaba, ben Elif. Cumartesi günü deneme dersi almak istiyorum.</div>
+        <div class="go"><p>Stüdyonuzun yapay zekâ resepsiyonisti.</p>
+        <button type="button" class="play" id="play">Demoyu izle</button></div>
       </div>
-      <div class="chips" id="chips"></div>
-      <form class="in" id="form" autocomplete="off">
-        <input id="q" type="text" placeholder="Bir soru yazın" aria-label="Mesaj" maxlength="300">
-        <button class="send" id="send" type="submit">Gönder</button>
-      </form>
-    </section>
-
-    <aside class="side">
-      <section class="panel ticket" aria-label="Rezervasyon kartı" id="ticket">
-        <div class="t-top">
-          <div><div class="k">Rezervasyon talebi</div><h2>Rezervasyon Kartı</h2><div class="bar" id="bar"><i></i><i></i><i></i><i></i><i></i></div><span class="chip">ÖRNEK ÜYE VERİSİ</span></div>
-          <div class="count" id="count">0/5</div>
-        </div>
-        <div class="fields" id="fields"></div>
-        <div class="cta">
-          <div id="ctaSlot"></div>
-          <div class="hint" id="ctaHint">Kart tamamlanınca talep stüdyo ekibine iletilir.</div>
-          <button type="button" class="reset" id="again">Demoyu baştan izle</button>
-        </div>
-      </section>
-      <section class="panel info" id="info"></section>
-    </aside>
-  </main>
-
-  <section class="panel closing" aria-label="Gerçek kurulum">
-    <p>Gerçek kurulumda Resepsiyon AI her soruyu WhatsApp'ta ve web'de canlı yanıtlar; program ve fiyat listenizi aldıktan sonra 48 saat içinde hazır olur.</p>
-    <p class="cta-line">İlgileniyorsanız bu mesaja cevap verin.</p>
+    </div>
+    <div class="chips" id="chips" aria-label="Örnek sorular"></div>
   </section>
-  <footer>Demo: Enes Eren tarafından Espilates Beşiktaş Pilates Stüdyosu için hazırlandı. Espilates Beşiktaş Pilates Stüdyosu ile bağlı değildir.</footer>
+  </div>
+  <div id="cardSide"></div>
+  <section class="close" id="close">
+    <p class="closing">Aynısı sizin stüdyonuz için.</p>
+    <a class="cta" href="https://wa.me/905442537176?text=Merhaba%2C%20Espilates%20Be%C5%9Fikta%C5%9F%20Pilates%20St%C3%BCdyosu%20i%C3%A7in%20haz%C4%B1rlanan%20%C3%96n%20Masa%20demosunu%20g%C3%B6rd%C3%BCm.%20Bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Enes Eren&#x27;e yazın</a>
+  </section>
+  <footer class="end">
+    <p>Enes Eren hazırladı. Espilates Beşiktaş Pilates Stüdyosu ile bağlı değildir.</p>
+    <p class="src"><span>Kaynaklar:</span><a href="https://www.espilatesstudio.com" target="_blank" rel="noopener noreferrer">espilatesstudio.com</a><a href="https://benefitsystems.com.tr/en/facilities/espilates-besiktas-pilates-stuedyosu/" target="_blank" rel="noopener noreferrer">benefitsystems.com.tr</a><a href="https://www.instagram.com/espilatesbesiktas/" target="_blank" rel="noopener noreferrer">instagram.com/espilatesbesiktas</a></p>
+  </footer>
+  <div class="cta-bar" id="ctaBar"><a class="cta" href="https://wa.me/905442537176?text=Merhaba%2C%20Espilates%20Be%C5%9Fikta%C5%9F%20Pilates%20St%C3%BCdyosu%20i%C3%A7in%20haz%C4%B1rlanan%20%C3%96n%20Masa%20demosunu%20g%C3%B6rd%C3%BCm.%20Bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Enes Eren&#x27;e yazın</a></div>
 </div>
 
-<script type="application/json" id="studio-data">{"handoff": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız.", "sinif_label": "Sınıf", "turns": [{"user": "Merhaba, ben Elif. Cumartesi günü deneme dersi almak istiyorum.", "reply": "Merhaba Elif, hoş geldin. Deneme derslerini WhatsApp üzerinden alıyoruz ve stüdyomuz her gün 06:00 ile 23:00 arası açık. Cumartesi için hangi saat sana uyar?", "booking": {"ad": "Elif", "sinif": null, "gun": "Cumartesi", "saat": null, "telefon": null}}, {"user": "11:00 olsun.", "reply": "Cumartesi 11:00 için deneme dersi talebini yazdım. Müsaitliği stüdyo ekibi teyit edecek. Sana yazabilmemiz için bir telefon numarası paylaşır mısın?", "booking": {"ad": "Elif", "sinif": "Deneme dersi", "gun": "Cumartesi", "saat": "11:00", "telefon": null}}, {"user": "Numaram 05XX XXX XX XX.", "reply": "Teşekkürler Elif. Talebin hazır: Deneme dersi, Cumartesi 11:00. Stüdyo ekibi müsaitliği teyit edip sana dönecek.", "booking": {"ad": "Elif", "sinif": "Deneme dersi", "gun": "Cumartesi", "saat": "11:00", "telefon": "05XX XXX XX XX"}}], "info": [["Konum", "Beşiktaş"], ["Saatler", "Her gün 06:00 - 23:00"], ["Deneme dersi", "WhatsApp üzerinden talep ediliyor"]], "sources": [["espilatesstudio.com", "https://www.espilatesstudio.com"], ["benefitsystems.com.tr", "https://benefitsystems.com.tr/en/facilities/espilates-besiktas-pilates-stuedyosu/"], ["instagram.com/espilatesbesiktas", "https://www.instagram.com/espilatesbesiktas/"]]}</script>
-<script type="application/json" id="qa-data">[{"q": "Stüdyo hangi saatlerde açık?", "keywords": ["saat", "açık", "açılış", "kapanış", "kaçta", "çalışma", "mesai", "hafta sonu", "pazar"], "a": "Stüdyomuz her gün 06:00 ile 23:00 arası açık."}, {"q": "Deneme dersi almak istiyorum", "keywords": ["deneme", "deneme dersi", "ilk ders", "denemek", "randevu", "başvuru", "talep", "kayıt"], "a": "Deneme dersi talepleri WhatsApp üzerinden alınıyor, sitedeki deneme ve iletişim düğmeleri sizi doğrudan WhatsApp'a yönlendirir."}, {"q": "Stüdyo nerede?", "keywords": ["nerede", "konum", "yer", "beşiktaş", "bölge", "semt", "lokasyon", "ulaşım"], "a": "Stüdyomuz Beşiktaş'ta."}, {"q": "Fiyatlar ne kadar?", "keywords": ["fiyat", "ücret", "ne kadar", "kaç tl", "tutar", "bedel", "ücretli", "kaça"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Ders programı nedir?", "keywords": ["program", "ders programı", "ders saatleri", "seans", "takvim", "hangi gün", "ders saati"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Sitede rezervasyon yapabilir miyim?", "keywords": ["rezervasyon", "rezerve", "form", "online", "yer ayırtma", "ayırtmak", "internetten"], "a": "Sitemizde rezervasyon formu yok, deneme dersi talepleri WhatsApp üzerinden alınıyor."}, {"q": "Eğitmenler kimler?", "keywords": ["eğitmen", "hoca", "instruktör", "öğretmen", "antrenör", "trainer", "uzman"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Ne giymeliyim?", "keywords": ["giymeli", "kıyafet", "giysi", "ne giy", "çorap", "tayt", "yanımda", "getirmek"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Hiç pilates yapmadım, olur mu?", "keywords": ["başlangıç", "seviye", "yeni başla", "acemi", "hiç yapmadım", "deneyim", "tecrübe", "ileri"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Park yeri var mı?", "keywords": ["park", "otopark", "araba", "araç", "vale", "park yeri", "otopark var"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Paket ve üyelik seçenekleri neler?", "keywords": ["paket", "üyelik", "abonelik", "aylık", "ders paketi", "kart", "seans paketi", "üye"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Hamileler için ders var mı?", "keywords": ["hamile", "hamilelik", "gebe", "doğum", "çocuk", "çocuklar", "yaş", "ön natal"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Kampanya veya indirim var mı?", "keywords": ["kampanya", "indirim", "promosyon", "fırsat", "öğrenci", "kupon", "ücretsiz"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Dersi iptal edebilir miyim?", "keywords": ["iptal", "dondurma", "erteleme", "değişiklik", "telafi", "ders iptali", "vazgeçmek", "iade"], "a": "Bunu stüdyomuza iletiyorum, size hemen dönüş yapacağız."}, {"q": "Instagram hesabınız var mı?", "keywords": ["instagram", "sosyal medya", "insta", "hesap", "web sitesi", "site", "takip", "fotoğraf"], "a": "Evet, stüdyomuzun kendi web sitesi ve Instagram hesabı var."}]</script>
+<script type="application/json" id="studio-data">{"turns": [{"user": "Merhaba, ben Elif. Cumartesi günü deneme dersi almak istiyorum.", "reply": "Merhaba Elif, hoş geldiniz. Deneme dersini WhatsApp'tan alıyoruz. Cumartesi için hangi saat uygun?", "booking": {"ad": "Elif", "sinif": null, "gun": "Cumartesi", "saat": null, "telefon": null}}, {"user": "11:00 olsun.", "reply": "Cumartesi 11:00 için deneme talebini yazdım. Telefon numaranızı paylaşır mısınız?", "booking": {"ad": "Elif", "sinif": "Deneme dersi", "gun": "Cumartesi", "saat": "11:00", "telefon": null}}, {"user": "Numaram 05XX XXX XX XX.", "reply": "Teşekkürler Elif. Talebiniz hazır: Deneme dersi, Cumartesi 11:00. Stüdyo ekibi teyit edip dönecek.", "booking": {"ad": "Elif", "sinif": "Deneme dersi", "gun": "Cumartesi", "saat": "11:00", "telefon": "05XX XXX XX XX"}}], "chips": [["Saatler", "Hangi saatlerde açıksınız?", "Her gün 06:00-⁠23:00 arası açığız, Pazar dahil."], ["Deneme dersi", "Deneme dersi var mı?", "Evet, ücretsiz deneme dersi var. Gün ve saat yazın, talebinizi alayım."], ["Dersler", "Hangi dersler var?", "Reformer Pilates ve Cadillac, Yoga, Tai Chi / Qi Gong derslerimiz var."], ["Rezervasyon", "Nasıl rezervasyon yaparım?", "Gün ve saat yazın, talebinizi stüdyo ekibine iletirim."], ["Konum", "Stüdyo nerede?", "Cihannuma, Barbaros Bulvarı Aykut Pasajı No:25, İç Kapı No:15, Beşiktaş."]], "note": "Demo: hiçbir şey gönderilmedi.", "sell": "Aynısı sizin stüdyonuz için."}</script>
 <script>
 (function(){
 'use strict';
 var $=function(s){return document.querySelector(s)};
-var D=JSON.parse($('#studio-data').textContent),QA=JSON.parse($('#qa-data').textContent);
-var HANDOFF=D.handoff,FIELDS=[['ad','Ad',0],['sinif',D.sinif_label,0],['gun','Gün',0],['saat','Saat',0],['telefon','Telefon (örnek)',1]];
+var D=JSON.parse($('#studio-data').textContent);
+var FIELDS=[['ad','Ad',''],['sinif','Sınıf',' w8'],['gun','Gün',''],['saat','Saat',' w3'],['telefon','Telefon (örnek)',' w5']];
 var REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
-var booking=blank(),busy=false,played=false;
+var AUTO=!REDUCED&&!/noauto/.test(location.search);
+var shown=blank(),busy=false,played=false,timers=[],peek=0;
 function blank(){return {ad:null,sinif:null,gun:null,saat:null,telefon:null}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-/* Turkish fold: İ->i, I->ı, lowercase, strip diacritics, ı->i */
-function fold(s){return String(s||'').replace(/İ/g,'i').replace(/I/g,'ı').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ı/g,'i')}
-var STOP={}; 'ders dersi dersin ders ne mi mu var nasil kadar icin bir ve ile bu su siz biz ben bana beni lutfen merhaba selam studyo studyonuz studyoda pilates hangi olur olabilir musunuz misiniz miyim mu yok iyi gunler da de ya ta te'.split(' ').forEach(function(w){STOP[w]=1});
-function toks(s){return fold(s).replace(/['\u2019\u2018`]\w*/g,'').split(/[^a-z0-9]+/).filter(function(t){return t.length>2&&!STOP[t]})}
-function same(a,b){if(a===b)return true;var m=Math.min(a.length,b.length);if(m>=4&&(a.indexOf(b)===0||b.indexOf(a)===0)&&Math.abs(a.length-b.length)<=4)return true;return a.length>=5&&b.length>=5&&a.slice(0,5)===b.slice(0,5)}
-var PRICE=/(^|[^a-z0-9])(fiyat\w*|ucret(?!siz)\w*|kac para|kac tl|tl|lira|paket\w*|uyelik\w*|abonelik\w*|ne kadar|tutar\w*|bedel\w*)([^a-z0-9]|$)/;
-var QT=QA.map(function(p){var set={};p.keywords.forEach(function(k){toks(k).forEach(function(t){set[t]=1})});toks(p.q).forEach(function(t){set[t]=1});return Object.keys(set)});
-function match(text){
-  var f=fold(text);
-  if(PRICE.test(f))return {a:HANDOFF,handoff:true};
-  var q=toks(text),best=-1,bs=0;
-  QT.forEach(function(kw,i){var s=0;q.forEach(function(t){if(kw.some(function(k){return same(t,k)}))s++});if(s>0)s-=kw.length/1000;if(s>bs){bs=s;best=i}});
-  return best>=0?{a:QA[best].a,handoff:QA[best].a.indexOf(HANDOFF)>-1,i:best}:{a:HANDOFF,handoff:true};
+
+/* ---------- static bits ---------- */
+var ch=$('#chips');D.chips.forEach(function(p){var b=document.createElement('button');b.type='button';b.textContent=p[0];b.onclick=function(){ask(p[1],p[2]);b.classList.add('asked')};ch.appendChild(b)});
+var CHECK='<svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6"/></svg>';
+var CHEV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>';
+var CARD='<div class="bk compact blank"><div class="bk-top"><span class="bk-t">'+CHECK+'<span class="t1">Rezervasyon talebi</span><span class="t2">Talep hazır</span><span class="sum"></span></span><span class="bk-n"><span data-n>0/5</span>'+CHEV+'</span></div>'+
+  '<div class="bk-bar"><i></i><i></i><i></i><i></i><i></i></div><div class="bk-g">'+
+  FIELDS.map(function(f){return '<div class="f'+f[2]+'"><label>'+esc(f[1])+'</label><div class="v"></div></div>'}).join('')+
+  '</div><div class="bk-foot">'+esc(D.note)+'</div></div>';
+$('#cardDock').innerHTML=CARD;$('#cardSide').innerHTML=CARD;
+document.querySelector('#cardSide .bk').classList.remove('compact');
+
+/* ---------- booking card: counter, bar and value change in the same frame, one field at a time ---------- */
+function paint(glowKey){
+  var n=0;FIELDS.forEach(function(f){if(shown[f[0]])n++});
+  var sum=[shown.gun,shown.saat].filter(Boolean).join(' ');
+  document.querySelectorAll('.bk').forEach(function(bk){
+    var fs=bk.querySelectorAll('.f');
+    FIELDS.forEach(function(f,i){var box=fs[i],v=box.querySelector('.v'),val=shown[f[0]];
+      v.textContent=val||'';box.classList.toggle('has',!!val);
+      if(val&&f[0]===glowKey){v.classList.remove('glow');void v.offsetWidth;v.classList.add('glow')}});
+    bk.querySelector('[data-n]').textContent=n+'/5';
+    bk.querySelectorAll('.bk-bar i').forEach(function(b,i){b.classList.toggle('on',i<n)});
+    bk.querySelector('.sum').textContent=sum?'· '+sum:'';
+    bk.classList.toggle('blank',n===0);
+    bk.classList.toggle('done',n===5)});
+  $('.phone').classList.toggle('ok',n===5);
 }
-window.__match=match;
-
-/* ---------- animated background (same as the product) ---------- */
-(function(){
-  var cv=$('#bg'),c=cv.getContext('2d'),W,H,t=0,blobs=[
-    {x:.2,y:.25,r:.55,h:'242,169,59',a:.34,sx:.13,sy:.09},{x:.8,y:.7,r:.6,h:'150,70,20',a:.38,sx:.09,sy:.12},
-    {x:.55,y:.1,r:.4,h:'60,70,86',a:.34,sx:.07,sy:.1},{x:.1,y:.9,r:.45,h:'200,110,30',a:.2,sx:.11,sy:.07}];
-  function size(){W=cv.width=Math.max(160,innerWidth>>2);H=cv.height=Math.max(120,innerHeight>>2)}
-  function draw(){c.globalCompositeOperation='source-over';c.fillStyle='#0a0807';c.fillRect(0,0,W,H);c.globalCompositeOperation='lighter';
-    blobs.forEach(function(b,i){var x=(b.x+Math.sin(t*b.sx+i*2)*.18)*W,y=(b.y+Math.cos(t*b.sy+i)*.16)*H,r=b.r*Math.max(W,H);
-      var g=c.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba('+b.h+','+b.a+')');g.addColorStop(1,'rgba('+b.h+',0)');c.fillStyle=g;c.fillRect(0,0,W,H)})}
-  function loop(){t+=.016;draw();if(!REDUCED&&!document.hidden)requestAnimationFrame(loop)}
-  size();addEventListener('resize',function(){size();draw()});draw();
-  if(!REDUCED){requestAnimationFrame(loop);document.addEventListener('visibilitychange',function(){if(!document.hidden)requestAnimationFrame(loop)})}
-})();
-
-/* ---------- static panels ---------- */
-$('#info').innerHTML='<span class="k">Stüdyo bilgisi · herkese açık kaynaklardan</span>'+
-  D.info.map(function(r){return '<span><b>'+esc(r[0])+'</b> '+esc(r[1])+'</span>'}).join('')+
-  '<span class="src"><b>Kaynaklar</b>'+D.sources.map(function(s){return '<a href="'+esc(s[1])+'" target="_blank" rel="noopener noreferrer">'+esc(s[0])+'</a>'}).join('')+'</span>';
-var ch=$('#chips');QA.slice(0,3).forEach(function(p){var b=document.createElement('button');b.type='button';b.textContent=p.q;b.onclick=function(){ask(p.q)};ch.appendChild(b)});
+function setBooking(b){
+  timers.forEach(clearTimeout);timers=[];
+  var k=0;
+  FIELDS.forEach(function(f){var key=f[0];
+    if(!b[key]){shown[key]=null;return}
+    if(shown[key]===b[key])return;
+    timers.push(setTimeout(function(){shown[key]=b[key];paint(key)},REDUCED?0:k*170));k++});
+  paint();
+}
+var dock=$('#cardDock .bk');
+function setExp(){dock.setAttribute('aria-expanded',dock.classList.contains('compact')?'false':'true')}
+function togDock(){clearTimeout(peek);dock.classList.toggle('compact');setExp();scroll()}
+dock.setAttribute('tabindex','0');dock.setAttribute('role','button');setExp();
+dock.onclick=togDock;
+dock.onkeydown=function(e){if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){e.preventDefault();togDock()}};
 
 /* ---------- chat ---------- */
 var elLog=$('#log');
-function clearEmpty(){var e=$('#empty');if(e)e.remove()}
-function bubble(cls,text){var d=document.createElement('div');d.className='msg '+cls;d.textContent=text;elLog.appendChild(d);elLog.scrollTop=elLog.scrollHeight;return d}
+function clearStart(){var e=$('#start');if(e)e.remove()}
+/* pin to the last bubble, then hide any bubble the card edge still slices (10px slack: a new bubble pops in 8px low for 280ms), so no cut line ever shows under the card */
+function trim(){var t=elLog.scrollTop;for(var c=elLog.firstElementChild;c;c=c.nextElementSibling)c.style.visibility=(c.offsetTop<t&&c.offsetTop+c.offsetHeight>t-10)?'hidden':''}
+function scroll(){elLog.scrollTop=elLog.scrollHeight;trim()}
+elLog.addEventListener('scroll',trim);
+window.addEventListener('resize',scroll);
+if(window.visualViewport)visualViewport.addEventListener('resize',scroll);
+function bubble(cls,text){var d=document.createElement('div');d.className=cls==='note'?'note':cls==='sell'?'note sell':'msg '+cls;d.textContent=text;elLog.appendChild(d);scroll();return d}
 function reveal(el,text,cb){
-  if(REDUCED||text.length>400){el.textContent=text;cb&&cb();return}
-  var i=0,step=Math.max(1,Math.ceil(text.length/60));
-  (function tick(){i=Math.min(text.length,i+step);el.textContent=text.slice(0,i);elLog.scrollTop=elLog.scrollHeight;if(i<text.length)setTimeout(tick,16);else cb&&cb()})();
+  if(REDUCED){el.textContent=text;cb&&cb();return}
+  /* one character per 10ms, about 100 characters a second: readable while it types, a full run lands near 8.5s */
+  var i=0;
+  (function tick(){i++;el.textContent=text.slice(0,i);scroll();if(i<text.length)setTimeout(tick,10);else cb&&cb()})();
 }
 function typing(on){var t=$('#typing');
-  if(on&&!t){t=document.createElement('div');t.id='typing';t.className='typing';t.innerHTML='<span></span><span></span><span></span>';elLog.appendChild(t);elLog.scrollTop=elLog.scrollHeight}
+  if(on&&!t){t=document.createElement('div');t.id='typing';t.className='typing';t.innerHTML='<span></span><span></span><span></span>';elLog.appendChild(t);scroll()}
   if(!on&&t)t.remove()}
-function paintCard(prev){
-  var box=$('#fields');
-  if(!box.children.length){FIELDS.forEach(function(f){var d=document.createElement('div');d.className='f'+(f[2]?' wide':'');d.innerHTML='<label>'+esc(f[1])+'</label><div class="v">·</div>';box.appendChild(d)})}
-  var n=0,vs=box.querySelectorAll('.v');
-  FIELDS.forEach(function(f,i){var v=vs[i],val=booking[f[0]];
-    if(val){n++;v.textContent=val;v.classList.add('has');if(!prev||prev[f[0]]!==val){v.classList.remove('glow');void v.offsetWidth;v.classList.add('glow')}}
-    else{v.textContent='·';v.classList.remove('has','glow')}});
-  $('#count').textContent=n+'/5';$('#chatCount').textContent=n?'Kart '+n+'/5':'';
-  document.querySelectorAll('#bar i').forEach(function(b,i){b.classList.toggle('on',i<n)});
-  var slot=$('#ctaSlot');
-  if(n===5){slot.innerHTML='<div class="wa done">Talep stüdyo ekibine iletildi (demo, hiçbir şey gönderilmedi).</div>';$('#ctaHint').textContent='Örnek üye verisi: gerçek bir kişi değil.';$('#again').style.display='block'}
-  else{slot.innerHTML='<div class="wa">Talep stüdyoya iletilir</div>';$('#ctaHint').textContent='Kart tamamlanınca talep stüdyo ekibine iletilir.';$('#again').style.display=played?'block':'none'}
+/* one lock for the whole demo: chips and replay are disabled while a run or an answer is in flight */
+function setBusy(b){busy=b;document.querySelectorAll('#chips button').forEach(function(x){x.disabled=b});$('#again').disabled=b}
+function ask(q,a){
+  if(busy)return;clearStart();setBusy(true);
+  if(!played){var ag=$('#again');ag.querySelector('span').textContent='Demoyu izle';ag.setAttribute('aria-label','Demoyu izle');ag.hidden=false}
+  bubble('me',q);typing(true);
+  setTimeout(function(){typing(false);reveal(bubble('bot',''),a,function(){setBusy(false);scroll()})},REDUCED?0:800);
 }
-function setBooking(b){var prev=booking;booking=b;paintCard(prev)}
-
-function ask(text){
-  text=String(text||'').trim();if(!text||busy)return;
-  $('#q').value='';clearEmpty();busy=true;$('#send').disabled=true;
-  bubble('me',text);typing(true);
-  var r=match(text);
-  setTimeout(function(){typing(false);var el=bubble('bot'+(r.handoff?' handoff':''),'');
-    reveal(el,r.a,function(){busy=false;$('#send').disabled=false})},REDUCED?0:600);
-}
-$('#form').addEventListener('submit',function(e){e.preventDefault();ask($('#q').value)});
-
 function play(){
-  if(busy)return;busy=true;played=true;$('#send').disabled=true;
-  elLog.innerHTML='';setBooking(blank());
-  bubble('note','Örnek üye konuşması · gerçek bir kişi değil');
+  if(busy)return;played=true;setBusy(true);clearTimeout(peek);
+  var ag=$('#again');ag.hidden=true;ag.querySelector('span').textContent='Baştan izle';ag.setAttribute('aria-label','Baştan izle');
+  document.querySelectorAll('#chips button').forEach(function(x){x.classList.remove('asked')});
+  elLog.innerHTML='';dock.classList.add('compact');setExp();setBooking(blank());
+  bubble('note','Örnek üye, gerçek kişi değil');
   var i=0;
   (function next(){
-    if(i>=D.turns.length){busy=false;$('#send').disabled=false;$('#again').style.display='block';
-      if(matchMedia('(max-width:860px)').matches)setTimeout(function(){$('#ticket').scrollIntoView({behavior:REDUCED?'auto':'smooth',block:'start'})},500);return}
-    var t=D.turns[i++];
-    setTimeout(function(){bubble('me script',t.user);typing(true);
-      setTimeout(function(){typing(false);var el=bubble('bot',''); 
-        reveal(el,t.reply,function(){setBooking(t.booking);setTimeout(next,REDUCED?0:900)})},REDUCED?0:800)},REDUCED?0:700);
+    /* money moment: the filled 5-field card opens on phones for 3s at every size (360 and 390 alike), then it folds back into the bar */
+    if(i>=D.turns.length){setBusy(false);$('#again').hidden=false;
+      if(innerWidth<900){bubble('sell',D.sell);dock.classList.remove('compact');setExp();scroll();
+        peek=setTimeout(function(){dock.classList.add('compact');setExp();scroll()},REDUCED?0:3000)}
+      return}
+    var t=D.turns[i++],k=i;
+    setTimeout(function(){bubble('me',t.user);typing(true);
+      setTimeout(function(){typing(false);
+        reveal(bubble('bot',''),t.reply,function(){setBooking(t.booking);setTimeout(next,REDUCED?0:500)})},REDUCED?0:800)},REDUCED?0:(k===1?0:450));
   })();
 }
 $('#play').onclick=play;
-$('#again').onclick=function(){if(!busy){elLog.scrollIntoView({block:'nearest'});play()}};
-paintCard(null);
+$('#again').onclick=function(){if(!busy)play()};
+paint();
+/* autoplay once, after the start screen has been read: the value has to show without a tap. Reduced motion keeps the button. */
+if(AUTO){
+  var go=function(){setTimeout(function(){if(played||busy)return;if(document.hidden){document.addEventListener('visibilitychange',function w(){if(!document.hidden){document.removeEventListener('visibilitychange',w);if(!played&&!busy)play()}})}else play()},600)};
+  Promise.race([document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve(),new Promise(function(r){setTimeout(r,800)})]).then(go,go);
+}
 })();
 </script>
 </body>
