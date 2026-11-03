@@ -12,7 +12,10 @@
   "fizyohaus-kagithane/logo.png": "7d5c2f66175d8f60a810e62bdab33c4b4bbe4624f246ee13b52259878a2cf7c8",
   "fizyohaus-kagithane/og.png": "5079273a462bf17b53cd5bd4424b0c1397192e38ec63890d2ce71a545b8831b2",
   "fizyohaus-kagithane/qa.json": "d7b31c31a395446545049ffe4b408d53740ae89cc483fa4b820cb3c0f197aba6",
-  "index.html": "c05b2c8faf491c0f3ed8c4edfce4c2f6c692f8eef636e3215ce6959546b39687",
+  "happy-pilates/index.html": "e48206a29590306d8c03656888712ae4f02380c3fee367a5eec0c88347a5c7d8",
+  "happy-pilates/og.png": "220b9e138a31b7df1c9fbe208660e1ed0def9ba7a96debc177ab6df7c2361aa5",
+  "happy-pilates/qa.json": "31aa8b171333fac84a68abc546864b829d89421f48a1d0e06918c879d8250d4d",
+  "index.html": "655655783fce0ea5b25191225ab72e8be1e04b47456d003078cd36a2aeba3864",
   "mecidiyekoy-pilates-studyo/index.html": "954e10bb9d086d4e8f8714e12ffb5c11f9d4e83decb60385ff6bb5f6ba3f9f92",
   "mecidiyekoy-pilates-studyo/logo.png": "e8d71a3a40b5814acfb41eb7c6a1126ec8838b5c869ab2bb9a0ee756d53c8b64",
   "mecidiyekoy-pilates-studyo/og.png": "18c04429feb99571e455748f3c82bb6b8e5bc0a8dee44179b11af74df3d6f873",
@@ -21,12 +24,12 @@
   "taps-pilates/og.png": "3e59d6528dffcca6f307d68a18829c3c091680ec5cdcb6651b5654efb292eb5c",
   "taps-pilates/qa.json": "cdc2f35293c350856b25a85093db55e22f0a18d67230719674140ea5b2edf448"
  },
- "round": 4,
+ "round": 5,
  "scores": {
   "looks": 8.0,
-  "words": 8.7,
-  "works": 8.6
+  "words": 8.0,
+  "works": 8.0
  },
- "stamped_at": "2026-10-24T21:17:55Z",
+ "stamped_at": "2026-11-03T14:22:54Z",
  "threshold": 8
 }
