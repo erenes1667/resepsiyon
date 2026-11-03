@@ -31,9 +31,9 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;bac
 body::after{content:"";position:fixed;z-index:0;pointer-events:none;display:none;left:60%;bottom:-120px;width:620px;height:260px;border-radius:50%;background:rgba(var(--acc),.22);filter:blur(70px)}
 .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
 background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-.wrap{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 16px calc(var(--bar) + 12px + env(safe-area-inset-bottom))}
+.wrap{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 16px calc(var(--bar) + var(--nx,0px) + 12px + env(safe-area-inset-bottom))}
 /* phone: the header and the chat share the viewport above the fixed bar, so the chips never hide under it */
-.screen{display:flex;flex-direction:column;height:calc(100dvh - var(--bar) - env(safe-area-inset-bottom));min-height:480px}
+.screen{display:flex;flex-direction:column;height:calc(100dvh - var(--bar) - var(--nx,0px) - env(safe-area-inset-bottom));min-height:480px}
 .brand{flex:none;padding:10px 0 8px}
 .brand .eyebrow{margin:0 0 8px;font-size:13px;line-height:1.3;letter-spacing:.03em;color:var(--amber);font-weight:600}
 .brand-row{display:flex;align-items:center;gap:12px}
@@ -196,17 +196,85 @@ body::after{display:block}
 .close{display:block;grid-area:close;align-self:start}
 .cta-bar{display:none}
 .end{grid-area:end;padding:0}
-.wrap{padding-bottom:18px}
+.wrap{padding-bottom:18px;padding-right:84px}
 }
 @media (min-width:900px) and (max-height:820px){.brand .studio{font-size:56px}.brand h1{font-size:30px}.brand .lede{display:none}#cardSide .v{font-size:19px;min-height:24px}.wrap{row-gap:12px}}
 /* short desktop windows: the WhatsApp CTA stays on screen, pinned bottom left, the footer scrolls under it */
 @media (min-width:900px) and (max-height:700px){.close{position:fixed;left:32px;bottom:20px;z-index:5;margin:0}.closing{font-size:22px}.end{padding-bottom:130px}}
 </style>
 <style>:root{--acc:240,128,96}</style>
+<style>
+/* v2: location card */
+.msg.loc{padding:6px;width:88%;max-width:300px}
+.loc svg.map{display:block;width:100%;height:auto;border-radius:13px}
+.loc .lc{padding:9px 8px 2px}
+.loc .lc b{display:block;font-size:16px;font-weight:600}
+.loc .lc span{display:block;font-size:14px;line-height:1.35;color:var(--mid);margin-top:2px}
+.loc a.lk{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin:6px 2px 2px;border-radius:12px;border:1px solid rgba(var(--acc),.6);color:var(--amber);font-weight:600;font-size:15px;text-decoration:none}
+.loc a.lk:hover{background:rgba(var(--acc),.12)}
+.loc a.lk svg{width:16px;height:16px}
+.pin{animation:drop .5s .1s both cubic-bezier(.2,.9,.3,1.3)}
+@keyframes drop{from{transform:translateY(-14px);opacity:0}to{transform:none;opacity:1}}
+/* v2: next-step control. Phone: full-width bar above the WhatsApp bar. Desktop: slim strip in the free column on the right */
+#next{position:fixed;z-index:6;left:16px;right:16px;bottom:calc(var(--bar) + env(safe-area-inset-bottom) + 4px);height:48px;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 18px;border-radius:26px;border:1.5px solid var(--amber);background:linear-gradient(180deg,rgba(var(--acc),.28),rgba(var(--acc),.14)),#120d0b;color:var(--ink);font-weight:600;font-size:15.5px;letter-spacing:.01em;animation:glow 2.4s infinite ease-in-out,nxin .5s both}
+#next[hidden]{display:none}
+#next svg{flex:none;width:22px;height:22px;color:var(--amber);animation:nudge 1.6s infinite ease-in-out}
+#next:hover{background:linear-gradient(180deg,rgba(var(--acc),.4),rgba(var(--acc),.2)),#120d0b}
+#next:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+body.nx{--nx:56px}
+@keyframes glow{0%,100%{box-shadow:0 0 10px rgba(var(--acc),.35),0 0 0 0 rgba(var(--acc),.0)}50%{box-shadow:0 0 28px rgba(var(--acc),.75),0 0 0 4px rgba(var(--acc),.12)}}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@keyframes nxin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (min-width:900px){
+#next{left:auto;right:max(12px,calc((100vw - 1240px)/2 + 12px));top:16px;bottom:16px;width:56px;height:auto;flex-direction:column-reverse;justify-content:center;gap:18px;padding:0;border-radius:28px}
+#next .nl{writing-mode:vertical-rl;font-size:14px;letter-spacing:.05em;white-space:nowrap}
+#next svg{animation:none}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(0)}}
+}
+/* v2: views */
+.wrap,.dash{transition:opacity .3s ease,transform .3s ease}
+.wrap.out{opacity:0;transform:translateX(-28px)}
+.dash{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:12px 16px calc(var(--bar) + 24px + env(safe-area-inset-bottom))}
+.dash[hidden],.wrap[hidden]{display:none!important}
+.dash.pre{opacity:0;transform:translateX(28px)}.dash.out{opacity:0;transform:translateX(28px)}.wrap.pre{opacity:0;transform:translateX(-28px)}
+.dtop{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.back{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 12px;border-radius:22px;border:1px solid rgba(var(--acc),.7);background:transparent;color:var(--amber);font-weight:600;font-size:14.5px}
+.back svg{width:18px;height:18px}
+.back:hover{background:rgba(var(--acc),.12)}
+.back:focus-visible,.dash a:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.deye{font-size:13px;letter-spacing:.03em;color:var(--amber);font-weight:600}
+.dash h2{margin:18px 0 4px;font-family:var(--serif);font-weight:300;font-size:clamp(34px,9vw,52px);line-height:1.05;letter-spacing:-.015em;outline:none}
+.dash h2 i{color:var(--amber);font-style:normal}
+.dlede{margin:0 0 16px;font-size:15.5px;line-height:1.4;color:var(--mid);max-width:56ch}
+.dg{display:grid;grid-template-columns:1fr;gap:14px}
+.dc{border:1px solid rgba(var(--acc),.28);border-radius:20px;padding:14px 14px 6px;background:linear-gradient(160deg,rgba(var(--acc),.08),rgba(255,255,255,.025))}
+.dc h3{margin:0 0 4px;font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.15}
+.dc .sub{margin:0 0 8px;font-size:13.5px;color:var(--dim);line-height:1.35}
+.dr{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 10px;padding:10px 0;border-top:1px solid var(--line)}
+.dr b{font-size:15.5px;font-weight:600;line-height:1.3}
+.dr span.d{display:block;grid-column:1;font-size:14px;line-height:1.35;color:var(--mid)}
+.dr.hot{margin:0 -8px;padding:10px 8px;border:1px solid var(--amber);border-radius:14px;background:rgba(var(--acc),.12);box-shadow:0 0 22px rgba(var(--acc),.2)}
+.dr.warn b{color:var(--amber)}
+.tg{justify-self:end;align-self:start;font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--dim);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:1px 7px;white-space:nowrap}
+.tg.new{color:#150c05;background:var(--amber);border-color:var(--amber)}
+.flag{display:inline-block;margin-left:6px;font-size:13px;font-weight:600;color:#150c05;background:var(--amber);border-radius:10px;padding:0 8px;letter-spacing:.02em;white-space:nowrap}
+.fill{grid-column:1/-1;display:grid;grid-template-columns:repeat(8,1fr);gap:3px;margin-top:2px}
+.fill i{height:6px;border-radius:3px;background:rgba(255,255,255,.12)}
+.fill i.on{background:var(--amber)}
+.dfoot{margin:16px 0 0;font-size:13px;line-height:1.45;color:var(--faint)}
+.dcta{display:none}.dtop .dtc{display:none}.deye{display:none}body.nx .cta-bar{background:var(--bg);height:calc(var(--bar) + var(--nx) + env(safe-area-inset-bottom))}body.nx .cta-bar a.cta{position:absolute;left:16px;right:16px;bottom:calc(12px + env(safe-area-inset-bottom));width:auto}
+@media (min-width:900px){
+.dash{padding:28px 84px 40px 32px}
+.dg{grid-template-columns:1fr 1fr;gap:18px}
+.dc{padding:18px 22px 10px}
+.dcta{display:none}.dtop .dtc{display:inline-flex;margin:0;min-height:44px;font-size:15px;padding:0 18px}.deye{display:none}
+.dcta p{margin:0;font-family:var(--serif);font-weight:300;font-size:30px}
+}
+</style>
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
-<div class="wrap">
+<div class="wrap" id="chatView">
   <div class="screen">
   <header class="brand">
     <p class="eyebrow">Ön Masa demosu · Enes Eren&#x27;den</p>
@@ -238,10 +306,25 @@ body::after{display:block}
     <p>Enes Eren hazırladı. Happy Pilates ile bağlı değildir.</p>
     <p class="src"><span>Kaynaklar:</span><a href="https://benefitsystems.com.tr/en/facilities/happy-pilates/" target="_blank" rel="noopener noreferrer">benefitsystems.com.tr</a><a href="https://www.instagram.com/happypilates2" target="_blank" rel="noopener noreferrer">instagram.com/happypilates2</a></p>
   </footer>
-  <div class="cta-bar" id="ctaBar"><a class="cta" href="https://wa.me/905442537176?text=Merhaba%2C%20Happy%20Pilates%20i%C3%A7in%20haz%C4%B1rlanan%20%C3%96n%20Masa%20demosunu%20g%C3%B6rd%C3%BCm.%20Bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Enes Eren&#x27;e yazın</a></div>
 </div>
 
-<script type="application/json" id="studio-data">{"turns": [{"user": "Merhaba, ben Elif. Çarşamba akşamı Reformer Pilates için rezervasyon yaptırmak istiyorum.", "reply": "Merhaba Elif, hoş geldiniz. Rezervasyon zorunlu, Çarşamba için hangi saat uygun?", "booking": {"ad": "Elif", "sinif": null, "gun": "Çarşamba", "saat": null, "telefon": null}}, {"user": "18:00 olsun.", "reply": "Çarşamba 18:00 için Reformer Pilates talebini yazdım. Telefon numaranızı paylaşır mısınız?", "booking": {"ad": "Elif", "sinif": "Reformer Pilates", "gun": "Çarşamba", "saat": "18:00", "telefon": null}}, {"user": "Numaram 05XX XXX XX XX.", "reply": "Teşekkürler Elif. Talebiniz hazır: Reformer Pilates, Çarşamba 18:00. Stüdyo ekibi teyit edip dönecek.", "booking": {"ad": "Elif", "sinif": "Reformer Pilates", "gun": "Çarşamba", "saat": "18:00", "telefon": "05XX XXX XX XX"}}], "chips": [["Saatler", "Hangi saatlerde açıksınız?", "Her gün 07:00-⁠21:00 arası açığız."], ["Dersler", "Hangi dersler var?", "Kadıköy'deki stüdyomuzda Reformer Pilates grup dersleri var."], ["Rezervasyon", "Rezervasyon gerekli mi?", "Evet, rezervasyon zorunlu. Ders, gün ve saat yazın, talebinizi alayım."], ["İptal", "İptal kuralı nedir?", "İptaller için dersten en az 12 saat önce stüdyoya haber vermeniz gerekiyor."], ["Ders programı", "Güncel ders programı nerede?", "Güncel ders programı için stüdyonun Instagram hesabını takip edebilirsiniz."], ["Konum", "Stüdyo nerede?", "Fahrettin Kerim Gökay Caddesi, Kadıköy."]], "note": "Demo: hiçbir şey gönderilmedi.", "sell": "Aynısı sizin stüdyonuz için."}</script>
+<main class="dash pre" id="dash" hidden aria-labelledby="dh">
+  <div class="dtop"><button type="button" class="back" id="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="20" y1="12" x2="5" y2="12"/><polyline points="11 6 5 12 11 18"/></svg>Sohbete dön</button><span class="deye">Ön Masa demosu · Happy Pilates</span><a class="cta dtc" href="https://wa.me/905442537176?text=Merhaba%2C%20Happy%20Pilates%20i%C3%A7in%20haz%C4%B1rlanan%20%C3%96n%20Masa%20demosunu%20g%C3%B6rd%C3%BCm.%20Bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Enes Eren&#x27;e yazın</a></div>
+  <h2 id="dh" tabindex="-1">Stüdyo paneli<i>.</i></h2>
+  <p class="dlede">Siz derstesiniz, Ön Masa yazışmaları toplar. Stüdyonuz bunu görür. Aşağıdaki her satır ve sayı örnek veridir.</p>
+  <div class="dg">
+    <section class="dc" aria-label="Gelen talepler"><h3>Gelen talepler</h3><p class="sub">Sohbetten çıkan hazır rezervasyon talepleri. Teyit sizde.</p><div class="dr hot"><b>Elif</b><span class="tg">ÖRNEK</span><span class="d">Reformer Pilates · Çarşamba 18:00 · sohbetten geldi</span></div><div class="dr "><b>Selin</b><span class="tg">ÖRNEK</span><span class="d">Reformer Pilates · Perşembe 10:00</span></div><div class="dr "><b>Deniz</b><span class="tg">ÖRNEK</span><span class="d">Reformer Pilates · Cuma 19:00</span></div><div class="dr "><b>Ayşe</b><span class="tg">ÖRNEK</span><span class="d">Reformer Pilates · Cumartesi 11:00</span></div><div class="dr "><b>Mert</b><span class="tg">ÖRNEK</span><span class="d">Reformer Pilates · Pazartesi 08:00</span></div></section>
+    <section class="dc" aria-label="Bugünkü dersler"><h3>Bugünkü dersler</h3><p class="sub">Dolu yerler tek bakışta.</p><div class="dr"><b>09:00 Reformer Pilates</b><span class="tg">ÖRNEK</span><span class="d">5/8 dolu</span><div class="fill" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></div><div class="dr"><b>12:00 Reformer Pilates</b><span class="tg">ÖRNEK</span><span class="d">3/8 dolu</span><div class="fill" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="dr"><b>18:00 Reformer Pilates</b><span class="tg">ÖRNEK</span><span class="d">8/8 dolu, bekleme listesi</span><div class="fill" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div><div class="dr"><b>20:00 Reformer Pilates</b><span class="tg">ÖRNEK</span><span class="d">6/8 dolu</span><div class="fill" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div></section>
+    <section class="dc" aria-label="İptaller"><h3>İptaller</h3><p class="sub">12 saat kuralı kendiliğinden uygulanır, geç iptal işaretlenir.</p><div class="dr "><b>Zeynep</b><span class="tg">ÖRNEK</span><span class="d">Çarşamba 10:00 · 14 saat önce iptal · kurala uygun, yer boşaldı</span></div><div class="dr warn"><b>Burcu</b><span class="tg">ÖRNEK</span><span class="d">Perşembe 09:00 · 5 saat önce iptal<span class="flag">Geç iptal</span><br>12 saat kuralına takıldı, stüdyo karar verir</span></div><div class="dr "><b>Can</b><span class="tg">ÖRNEK</span><span class="d">Cuma 19:00 · 30 saat önce iptal · kurala uygun, yer boşaldı</span></div></section>
+    <section class="dc" aria-label="Yanıtlanan sorular"><h3>Siz dersteyken yanıtlananlar</h3><p class="sub">Ekip yokken Ön Masa karşıladı.</p><div class="dr"><b>“Hangi saatlerde açıksınız?”</b><span class="tg">ÖRNEK</span><span class="d">11:42 · Her gün 07:00-21:00 yanıtı verildi</span></div><div class="dr"><b>“Rezervasyon gerekli mi?”</b><span class="tg">ÖRNEK</span><span class="d">12:05 · Rezervasyon zorunlu, talep alındı</span></div><div class="dr"><b>“Stüdyo nerede?”</b><span class="tg">ÖRNEK</span><span class="d">12:31 · Konum kartı gönderildi</span></div><div class="dr"><b>“İptal kuralı nedir?”</b><span class="tg">ÖRNEK</span><span class="d">13:10 · 12 saat kuralı anlatıldı</span></div></section>
+  </div>
+  <div class="dcta"><p>Aynısı sizin stüdyonuz için.</p><a class="cta" href="https://wa.me/905442537176?text=Merhaba%2C%20Happy%20Pilates%20i%C3%A7in%20haz%C4%B1rlanan%20%C3%96n%20Masa%20demosunu%20g%C3%B6rd%C3%BCm.%20Bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Enes Eren&#x27;e yazın</a></div>
+  <p class="dfoot">Demo: hiçbir şey gönderilmedi. Örnek veri, gerçek üye veya gerçek rakam değildir. Enes Eren hazırladı. Happy Pilates ile bağlı değildir.</p>
+</main>
+<button type="button" id="next" hidden aria-controls="dash"><span class="nl">Sonraki adım: stüdyo paneli</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></button>
+  <div class="cta-bar" id="ctaBar"><a class="cta" href="https://wa.me/905442537176?text=Merhaba%2C%20Happy%20Pilates%20i%C3%A7in%20haz%C4%B1rlanan%20%C3%96n%20Masa%20demosunu%20g%C3%B6rd%C3%BCm.%20Bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Enes Eren&#x27;e yazın</a></div>
+
+<script type="application/json" id="studio-data">{"turns": [{"user": "Merhaba, ben Elif. Çarşamba akşamı Reformer Pilates için rezervasyon yaptırmak istiyorum.", "reply": "Merhaba Elif, hoş geldiniz. Rezervasyon zorunlu, Çarşamba için hangi saat uygun?", "booking": {"ad": "Elif", "sinif": null, "gun": "Çarşamba", "saat": null, "telefon": null}}, {"user": "18:00 olsun.", "reply": "Çarşamba 18:00 için Reformer Pilates talebini yazdım. Telefon numaranızı paylaşır mısınız?", "booking": {"ad": "Elif", "sinif": "Reformer Pilates", "gun": "Çarşamba", "saat": "18:00", "telefon": null}}, {"user": "Numaram 05XX XXX XX XX.", "reply": "Teşekkürler Elif. Talebiniz hazır: Reformer Pilates, Çarşamba 18:00. Stüdyo ekibi teyit edip dönecek.", "booking": {"ad": "Elif", "sinif": "Reformer Pilates", "gun": "Çarşamba", "saat": "18:00", "telefon": "05XX XXX XX XX"}}], "chips": [["Saatler", "Hangi saatlerde açıksınız?", "Her gün 07:00-⁠21:00 arası açığız."], ["Dersler", "Hangi dersler var?", "Kadıköy'deki stüdyomuzda Reformer Pilates grup dersleri var."], ["Rezervasyon", "Rezervasyon gerekli mi?", "Evet, rezervasyon zorunlu. Ders, gün ve saat yazın, talebinizi alayım."], ["İptal", "İptal kuralı nedir?", "İptaller için dersten en az 12 saat önce stüdyoya haber vermeniz gerekiyor."], ["Ders programı", "Güncel ders programı nerede?", "Güncel ders programı için stüdyonun Instagram hesabını takip edebilirsiniz."], ["Konum", "Stüdyo nerede?", "@loc"]], "note": "Demo: hiçbir şey gönderilmedi.", "sell": "Aynısı sizin stüdyonuz için."}</script>
 <script>
 (function(){
 'use strict';
@@ -318,22 +401,31 @@ function typing(on){var t=$('#typing');
   if(!on&&t)t.remove()}
 /* one lock for the whole demo: chips and replay are disabled while a run or an answer is in flight */
 function setBusy(b){busy=b;document.querySelectorAll('#chips button').forEach(function(x){x.disabled=b});$('#again').disabled=b}
+var MAPS='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('Happy Pilates Fahrettin Kerim Gökay Cd. Kadıköy');
+function locCard(){
+  var d=document.createElement('div');d.className='msg bot loc';
+  d.innerHTML='<svg class="map" viewBox="0 0 280 130" role="img" aria-label="Çizilmiş harita, stüdyo konumu işaretli"><rect width="280" height="130" fill="#1a1411"/><path d="M0 100 Q60 88 120 104 T280 96 V130 H0Z" fill="#241b16"/><g stroke="#3a2e26" stroke-width="9" fill="none" stroke-linecap="round"><path d="M-10 40 L290 58"/><path d="M96 -10 L128 140"/><path d="M200 -10 L176 140"/></g><g stroke="#2c221c" stroke-width="5" fill="none"><path d="M-10 84 L290 22"/><path d="M40 -10 L52 140"/><path d="M240 -10 L252 140"/></g><g fill="#221a15"><rect x="108" y="20" width="22" height="18" rx="3"/><rect x="142" y="66" width="24" height="16" rx="3"/><rect x="210" y="70" width="26" height="18" rx="3"/><rect x="58" y="62" width="26" height="16" rx="3"/></g><g class="pin"><ellipse cx="140" cy="62" rx="9" ry="3.5" fill="rgba(0,0,0,.5)"/><path d="M140 62 C128 46 124 40 124 33 A16 16 0 1 1 156 33 C156 40 152 46 140 62Z" fill="rgb(var(--acc))"/><circle cx="140" cy="33" r="6.5" fill="#150c05"/></g></svg>'+
+   '<div class="lc"><b>Happy Pilates</b><span>Fahrettin Kerim Gökay Cd., Kadıköy</span></div>'+
+   '<a class="lk" href="'+MAPS+'" target="_blank" rel="noopener noreferrer">Haritada aç<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><polyline points="8 7 17 7 17 16"/></svg></a>';
+  elLog.appendChild(d);scroll();return d}
 function ask(q,a){
   if(busy)return;clearStart();setBusy(true);
   if(!played){var ag=$('#again');ag.querySelector('span').textContent='Demoyu izle';ag.setAttribute('aria-label','Demoyu izle');ag.hidden=false}
-  bubble('me',q);typing(true);
+  bubble('me',q);
+  if(a==='@loc'){setTimeout(function(){locCard();setBusy(false);scroll()},REDUCED?0:250);return}
+  typing(true);
   setTimeout(function(){typing(false);reveal(bubble('bot',''),a,function(){setBusy(false);scroll()})},REDUCED?0:800);
 }
 function play(){
   if(busy)return;played=true;setBusy(true);clearTimeout(peek);
   var ag=$('#again');ag.hidden=true;ag.querySelector('span').textContent='Baştan izle';ag.setAttribute('aria-label','Baştan izle');
   document.querySelectorAll('#chips button').forEach(function(x){x.classList.remove('asked')});
-  elLog.innerHTML='';dock.classList.add('compact');setExp();setBooking(blank());
+  nextOff();elLog.innerHTML='';dock.classList.add('compact');setExp();setBooking(blank());
   bubble('note','Örnek üye, gerçek kişi değil');
   var i=0;
   (function next(){
     /* money moment: the filled 5-field card opens on phones for 3s at every size (360 and 390 alike), then it folds back into the bar */
-    if(i>=D.turns.length){setBusy(false);$('#again').hidden=false;
+    if(i>=D.turns.length){setBusy(false);$('#again').hidden=false;nextOn();
       if(innerWidth<900){bubble('sell',D.sell);dock.classList.remove('compact');setExp();scroll();
         peek=setTimeout(function(){dock.classList.add('compact');setExp();scroll()},REDUCED?0:3000)}
       return}
@@ -343,6 +435,18 @@ function play(){
         reveal(bubble('bot',''),t.reply,function(){setBooking(t.booking);setTimeout(next,REDUCED?0:500)})},REDUCED?0:800)},REDUCED?0:(k===1?0:450));
   })();
 }
+/* ---------- views: chat <-> studio panel ---------- */
+var nxt=$('#next'),chatV=$('#chatView'),dashV=$('#dash'),switching=false;
+function nextOn(){nxt.hidden=false;document.body.classList.add('nx');scroll()}
+function nextOff(){nxt.hidden=true;document.body.classList.remove('nx')}
+function swap(from,to,focusEl,after){
+  if(switching)return;switching=true;
+  var fin=function(){from.hidden=true;from.classList.remove('out');to.hidden=false;to.classList.add('pre');void to.offsetWidth;to.classList.remove('pre');scrollTo(0,0);if(focusEl)focusEl.focus({preventScroll:true});after&&after();setTimeout(function(){switching=false},REDUCED?0:300)};
+  if(REDUCED){fin();return}
+  from.classList.add('out');setTimeout(fin,300);
+}
+nxt.onclick=function(){nxt.hidden=true;document.body.classList.remove('nx');swap(chatV,dashV,$('#dh'))};
+$('#back').onclick=function(){swap(dashV,chatV,null,function(){nextOn();nxt.focus({preventScroll:true});scroll()})};
 $('#play').onclick=play;
 $('#again').onclick=function(){if(!busy)play()};
 paint();
