@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#fdf5ee">
+<title>Ön Masa demosu, Gürses Dental Kağıthane</title>
+<meta name="description" content="Sorulara yanıt veren ve randevu talebi toplayan Türkçe yapay zekâ resepsiyonist. Gürses Dental Kağıthane için hazırlanmış örnek demo.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Ön Masa: Gürses Dental Kağıthane için demo">
+<meta property="og:description" content="Sorulara yanıt veren ve randevu talebi toplayan Türkçe yapay zekâ resepsiyonist. Gürses Dental Kağıthane için hazırlanmış örnek demo.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..500,100&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0807;--ink:#f3eadb;--mid:#cfc5b5;--dim:#a89e8f;--faint:#857b6d;--acc:242,169,59;--amber:rgb(var(--acc));--wa:#25d366;--line:rgba(var(--ln),.09);--bar:76px;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{min-height:100dvh;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(520px 520px at 50% 30%,rgba(var(--acc),.17),transparent 70%),radial-gradient(130% 100% at 50% 50%,transparent 50%,rgba(0,0,0,.6))}
+body::after{content:"";position:fixed;z-index:0;pointer-events:none;display:none;left:60%;bottom:-120px;width:620px;height:260px;border-radius:50%;background:rgba(var(--acc),.22);filter:blur(70px)}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.wrap{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 16px calc(var(--bar) + var(--nx,0px) + 12px + env(safe-area-inset-bottom))}
+/* phone: the header and the chat share the viewport above the fixed bar, so the chips never hide under it */
+.screen{display:flex;flex-direction:column;height:calc(100dvh - var(--bar) - var(--nx,0px) - env(safe-area-inset-bottom));min-height:480px}
+.brand{flex:none;padding:10px 0 8px}
+.brand .eyebrow{margin:0 0 8px;font-size:13px;line-height:1.3;letter-spacing:.03em;color:var(--accink);font-weight:600}
+.brand-row{display:flex;align-items:center;gap:12px}
+.blogo{flex:none;display:none;width:40px;height:40px;border-radius:50%;object-fit:cover;background:#fff;box-shadow:0 0 0 1px rgba(var(--ln),.12)}
+.brand .studio{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(28px,8.4vw,34px);line-height:1;letter-spacing:-.02em;font-variant-numeric:lining-nums;overflow-wrap:anywhere}
+.brand .studio i{color:var(--accink);font-style:normal}
+.brand .studio.long{font-size:clamp(24px,7vw,30px)}
+.brand .studio.wm{display:flex;align-items:center}.brand .studio.wm svg{height:.78em;width:auto;display:block}
+.brand .rest{margin:3px 0 0;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.brand .lede-m{margin:8px 0 0;font-size:15.5px;line-height:1.35;color:var(--mid)}
+.brand h1{display:none;margin:10px 0 0;font-family:var(--serif);font-weight:400;font-size:clamp(32px,2.7vw,40px);line-height:1.1;letter-spacing:-.005em;text-wrap:balance;max-width:20ch}
+.brand .lede{display:none;margin:8px 0 0;font-size:14.5px;line-height:1.4;color:var(--dim);max-width:46ch}
+.brand .lede b{font-weight:600;color:var(--ink)}
+#cardSide{display:none}
+
+.phone{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden;margin:0 -16px;
+background:linear-gradient(180deg,var(--surf),#0d0a08);border-top:1px solid rgba(var(--acc),.35);border-bottom:1px solid rgba(var(--acc),.2)}
+.phone::before{content:"";position:absolute;left:0;right:0;top:0;height:140px;pointer-events:none;background:linear-gradient(180deg,rgba(var(--acc),.09),transparent)}
+.ph-head{flex:none;display:flex;align-items:center;gap:10px;padding:8px 14px;border-bottom:1px solid var(--line);position:relative}
+.av{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;overflow:hidden;background:#fff}
+.av.none{background:rgba(var(--acc),.16);color:var(--accink);box-shadow:inset 0 0 0 1px rgba(var(--acc),.55)}
+.av img{display:block;width:100%;height:100%;object-fit:cover}
+.av.wm{background:var(--surf);border:1px solid rgba(var(--acc),.6);color:var(--ink)}.av.wm svg{display:block;height:19px;width:auto}
+.who{min-width:0;line-height:1.2}
+.who b{display:block;font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.who span{display:block;font-size:14px;color:var(--mid);line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.who span::before{content:"";display:inline-block;vertical-align:middle;margin:-2px 6px 0 0;width:7px;height:7px;border-radius:50%;background:var(--amber)}
+.again{flex:none;display:inline-flex;align-items:center;gap:7px;margin-left:auto;min-height:44px;padding:0 13px;border-radius:22px;border:1px solid rgba(var(--acc),.7);background:transparent;color:var(--accink);font-size:13.5px;font-weight:600;white-space:nowrap}
+.again svg{width:17px;height:17px;flex:none}
+@media (max-width:429px){.again{width:44px;padding:0;justify-content:center}.again span{display:none}}
+.again[hidden]{display:none}
+.again:hover{background:rgba(var(--acc),.12)}
+
+/* booking card: a compact bar above the chat on phones, a full card on desktop */
+#cardDock{flex:none;padding:8px 10px;border-bottom:1px solid var(--line)}
+.bk{position:relative;border:1px solid rgba(var(--acc),.3);border-radius:14px;padding:9px 12px;background:linear-gradient(160deg,rgba(var(--acc),.1),rgba(var(--ln),.03));transition:box-shadow .5s,border-color .5s}
+#cardDock .bk{cursor:pointer;min-height:44px}
+#cardDock .bk:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.bk-top{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:20px}
+.bk-t{display:flex;align-items:center;gap:7px;min-width:0;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);white-space:nowrap;overflow:hidden}
+.bk-t .sum{text-transform:none;letter-spacing:0;color:var(--ink);font-weight:500;overflow:hidden;text-overflow:ellipsis}
+.bk-t .sum:empty{display:none}
+.bk-n{flex:none;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--accink);letter-spacing:.06em}
+.bk-n svg{width:14px;height:14px;transition:transform .3s}
+.bk:not(.compact) .bk-n svg{transform:rotate(180deg)}
+#cardSide .bk-n svg{display:none}
+.bk .t2,.bk .ck{display:none}
+.bk.done .t1{display:none}.bk.done .t2{display:inline;color:var(--accink);font-weight:600}.bk.done .ck{display:block}
+.ck{flex:none;width:16px;height:16px;color:var(--accink)}
+.ck polyline{stroke-dasharray:24;stroke-dashoffset:24;animation:draw .5s .1s forwards ease-out}
+.bk-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin:7px 0 0}
+.bk-bar i{height:3px;border-radius:2px;background:rgba(var(--ln),.12)}
+.bk-bar i.on{background:var(--amber);box-shadow:0 0 10px rgba(var(--acc),.7)}
+.bk-g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px;margin-top:12px}
+.bk.compact .bk-g,.bk.compact .bk-foot,.bk.blank [data-n]{display:none}
+.bk .f{grid-column:span 4;min-width:0;border-bottom:1px solid rgba(var(--ln),.16);padding-bottom:5px;transition:border-color .4s}
+.bk .f.w8{grid-column:span 8}.bk .f.w5{grid-column:span 5}.bk .f.w3{grid-column:span 3}
+.bk .f label{display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:2px;white-space:nowrap}
+.bk .f.has label{color:var(--dim)}
+.bk .v{font-variant-numeric:lining-nums;font-size:15px;font-weight:500;line-height:1.25;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:19px}
+.bk .v:empty::before{content:"";display:block;width:22px;height:2px;margin:9px 0 8px;border-radius:1px;background:rgba(var(--ln),.18)}
+.bk .v.glow{animation:fill .7s ease-out}
+.bk .f.has{border-color:rgba(var(--acc),.6)}
+.bk-foot{margin-top:10px;font-size:13px;color:var(--faint)}
+.bk.done{border-color:var(--accink);box-shadow:0 0 36px rgba(var(--acc),.28);animation:stamp .55s cubic-bezier(.2,.9,.3,1.2)}
+
+/* chat */
+.log{position:relative;flex:1;min-height:0;overflow-y:auto;padding:18px 14px 10px;display:flex;flex-direction:column;gap:10px;scrollbar-width:none;overscroll-behavior:contain;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 24px);mask-image:linear-gradient(180deg,transparent 0,#000 24px)}
+.log::-webkit-scrollbar{display:none}
+.msg{max-width:88%;padding:10px 14px;border-radius:18px;font-size:16px;line-height:1.42;border:1px solid var(--line);overflow-wrap:anywhere;animation:pop .28s ease-out both}
+.msg.bot{align-self:flex-start;background:rgba(var(--ln),.06);border-radius:18px 18px 18px 4px}
+.msg.me{align-self:flex-end;background:linear-gradient(180deg,rgba(var(--acc),.22),rgba(var(--acc),.12));border-color:rgba(var(--acc),.4);border-radius:18px 18px 4px 18px}
+.note{align-self:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);background:rgba(var(--ln),.08);padding:6px 13px;border-radius:20px}
+.note.sell{font-family:var(--serif);font-size:22px;letter-spacing:0;text-transform:none;color:var(--accink);background:none;padding:4px 0 0}
+.typing{align-self:flex-start;display:flex;gap:5px;padding:13px 16px;border-radius:18px 18px 18px 4px;background:rgba(var(--ln),.06);border:1px solid var(--line)}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--dim);animation:bounce 1s infinite ease-in-out}
+.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
+/* start: the first message waits faintly, the line says what happens next, one tap starts it */
+.start{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px 18px 20px;text-align:center;background:radial-gradient(70% 60% at 50% 70%,rgba(var(--acc),.14),transparent 70%)}
+.start .go{display:flex;flex-direction:column;align-items:center;gap:14px;margin:auto 0 clamp(14px,7vh,56px)}
+.start .msg{align-self:flex-end;opacity:.6;animation:none;text-align:left;margin-bottom:14px}
+.start p{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(26px,7.2vw,32px);line-height:1.1;max-width:320px;letter-spacing:-.01em;text-wrap:balance}
+/* outline on purpose: the WhatsApp CTA is the only filled button on the page */
+.play{position:relative;display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 26px 0 20px;border:1.5px solid var(--amber);border-radius:40px;background:transparent;color:var(--accink);font-weight:600;font-size:16.5px;letter-spacing:.02em;margin-top:4px}
+.play::before{content:"";width:0;height:0;border-left:12px solid var(--amber);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.play::after{content:"";position:absolute;inset:-6px;border-radius:44px;border:2px solid var(--amber);opacity:0;animation:ring 2.2s infinite ease-out}
+.play:hover{background:rgba(var(--acc),.12)}
+.play:focus-visible,.chips button:focus-visible,.again:focus-visible,a:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+/* chips wrap to a second row so every answer is visible at 360 without a scroll; each pill is a 44px tap target */
+.chips{flex:none;position:relative;display:flex;flex-wrap:wrap;gap:8px;padding:6px 14px 6px}
+.chips button{position:relative;flex:none;min-height:44px;padding:0 14px;border-radius:22px;border:1px solid rgba(var(--ln),.14);background:rgba(var(--ln),.05);font-size:14px;font-weight:500;color:var(--ink);white-space:nowrap;transition:border-color .2s,background .2s}
+.chips button:hover:not(:disabled){border-color:rgba(var(--acc),.6)}
+.chips button.asked{border-color:rgba(var(--acc),.5);color:var(--accink);background:rgba(var(--acc),.08)}
+.chips button:disabled,.again:disabled{opacity:.45;cursor:default}
+
+/* below the fold on phones: closing, sources */
+.close{display:none}
+.closing{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(26px,2.3vw,34px);line-height:1.2}
+a.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;margin-top:14px;padding:0 24px;border-radius:40px;background:var(--wa);color:#07140b;font-weight:600;font-size:16.5px;text-decoration:none;box-shadow:0 10px 30px rgba(var(--shd),.28)}
+a.cta svg{width:22px;height:22px;flex:none}
+a.cta:hover{filter:brightness(1.06)}
+.cta-bar{position:fixed;z-index:5;left:0;right:0;bottom:0;height:calc(var(--bar) + env(safe-area-inset-bottom));padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(var(--bgc),0),var(--bg) 35%)}
+.cta-bar a.cta{display:flex;width:100%;margin:0}
+.end{display:flex;flex-direction:column;gap:4px;padding:16px 0 0}
+.end p{margin:0;font-size:13px;line-height:1.45;color:var(--faint)}
+.end .src{display:flex;flex-wrap:wrap;align-items:center;gap:0 14px}
+.end .src a{display:inline-flex;align-items:center;min-height:44px;margin:-8px 0;color:var(--dim);text-decoration:none;overflow-wrap:anywhere}
+.end .src a:hover{text-decoration:underline}
+
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes bounce{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-5px);opacity:1}}
+@keyframes ring{0%{opacity:.7;transform:scale(.96)}100%{opacity:0;transform:scale(1.18)}}
+@keyframes fill{0%{color:var(--accink);text-shadow:0 0 18px rgba(var(--acc),.9)}100%{text-shadow:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes stamp{0%{transform:scale(.97)}60%{transform:scale(1.015)}100%{transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* short phones (360x640): the phone head already names the studio, so the brand block goes and the chat gets the height */
+@media (max-width:899px) and (max-height:700px){.brand{padding:8px 0 6px}.brand .eyebrow{margin:0}.brand-row,.brand .rest,.brand .lede-m{display:none}.ph-head{padding:6px 14px}#cardDock{padding:6px 10px}}
+
+@media (min-width:900px){
+.screen{display:contents}
+.wrap{display:grid;grid-template-columns:minmax(0,1fr) 450px;grid-template-areas:"brand phone" "card phone" "close phone" "end phone";column-gap:64px;row-gap:14px;align-content:center;min-height:100dvh;padding:16px 32px;grid-template-rows:auto auto auto auto}
+body::before{background:radial-gradient(600px 600px at 76% 50%,rgba(var(--acc),.18),transparent 70%),radial-gradient(130% 100% at 50% 50%,transparent 50%,rgba(0,0,0,.6))}
+body::after{display:block}
+.brand{grid-area:brand;align-self:end;padding:0}
+.brand .eyebrow{font-size:14px;margin-bottom:12px}
+.brand-row{gap:20px}
+.blogo{display:block;width:88px;height:88px}
+.brand .studio{font-size:clamp(56px,5.6vw,80px)}
+.brand .studio.long{font-size:clamp(44px,4.1vw,58px)}
+.brand .rest{font-size:14px;margin-top:6px}
+.brand h1{display:block}
+.brand .lede{display:block;font-size:16.5px;line-height:1.45;margin-top:10px}
+.brand .lede-m{display:none}
+#cardDock{display:none}
+#cardSide{display:block;grid-area:card}
+#cardSide .bk{padding:14px 22px 13px;border-radius:22px}
+#cardSide .bk-n{font-size:16px}
+#cardSide .bk-bar{margin:12px 0 14px;gap:6px}
+#cardSide .bk-bar i{height:4px}
+#cardSide .bk-g{gap:16px 22px;margin-top:0}
+#cardSide .f label{margin-bottom:4px}
+#cardSide .v{font-size:21px;line-height:1.2;min-height:26px}
+#cardSide .v:empty::before{width:30px;margin:12px 0 10px}
+#cardSide .f{padding-bottom:8px}
+#cardSide .f:nth-child(3){grid-column:span 3}#cardSide .f.w3{grid-column:span 3}#cardSide .f.w5{grid-column:span 6}
+#cardSide .bk-foot{margin-top:12px}
+#cardSide .bk.blank .bk-g{display:none}#cardSide .bk.blank .bk-foot{opacity:.4}
+/* a real bezel, no notch: 6px frame plus a 1px inner line */
+.phone{grid-area:phone;flex:none;margin:0;border-radius:44px;border:6px solid #1b1714;height:clamp(560px,calc(100dvh - 96px),780px);align-self:center;box-shadow:inset 0 0 0 1px rgba(var(--ln),.08),0 30px 90px -10px rgba(var(--acc),.3),0 60px 120px -30px rgba(0,0,0,.9);transition:box-shadow .6s}
+.phone.ok{box-shadow:inset 0 0 0 1px rgba(var(--ln),.08),0 0 0 3px rgba(var(--acc),.25),0 30px 90px -10px rgba(var(--acc),.3),0 60px 120px -30px rgba(0,0,0,.9)}
+.ph-head{padding:18px 20px 12px;gap:12px}
+.av{width:42px;height:42px}.av.wm svg{height:22px}
+.who b{font-size:16px}
+.start{padding:24px 24px 40px}
+.start .go{margin-top:auto}
+.msg{font-size:16.5px}
+.chips{padding:8px 16px 16px}
+.chips button{min-height:44px;padding:0 15px}
+.close{display:block;grid-area:close;align-self:start}
+.cta-bar{display:none}
+.end{grid-area:end;padding:0}
+.wrap{padding-bottom:18px;padding-right:84px}
+}
+@media (min-width:900px) and (max-height:820px){.brand .studio{font-size:56px}.brand h1{font-size:30px}.brand .lede{display:none}#cardSide .v{font-size:19px;min-height:24px}.wrap{row-gap:12px}}
+/* short desktop windows: the WhatsApp CTA stays on screen, pinned bottom left, the footer scrolls under it */
+@media (min-width:900px) and (max-height:700px){.close{position:fixed;left:32px;bottom:20px;z-index:5;margin:0}.closing{font-size:22px}.end{padding-bottom:130px}}
+
+/* v2: location card */
+.msg.loc{padding:6px;width:88%;max-width:300px}
+.loc svg.map{display:block;width:100%;height:auto;border-radius:13px}
+.loc .lc{padding:9px 8px 2px}
+.loc .lc b{display:block;font-size:16px;font-weight:600}
+.loc .lc span{display:block;font-size:14px;line-height:1.35;color:var(--mid);margin-top:2px}
+.loc a.lk{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin:6px 2px 2px;border-radius:12px;border:1px solid rgba(var(--acc),.6);color:var(--accink);font-weight:600;font-size:15px;text-decoration:none}
+.loc a.lk:hover{background:rgba(var(--acc),.12)}
+.loc a.lk svg{width:16px;height:16px}
+.pin{animation:drop .5s .1s both cubic-bezier(.2,.9,.3,1.3)}
+@keyframes drop{from{transform:translateY(-14px);opacity:0}to{transform:none;opacity:1}}
+/* v2: next-step control. Phone: full-width bar above the WhatsApp bar. Desktop: slim strip in the free column on the right */
+#next{position:fixed;z-index:6;left:16px;right:16px;bottom:calc(var(--bar) + env(safe-area-inset-bottom) + 4px);height:48px;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 18px;border-radius:26px;border:1.5px solid var(--amber);background:linear-gradient(180deg,rgba(var(--acc),.28),rgba(var(--acc),.14)),var(--surf);color:var(--ink);font-weight:600;font-size:15.5px;letter-spacing:.01em;animation:glow 2.4s infinite ease-in-out,nxin .5s both}
+#next[hidden]{display:none}
+#next svg{flex:none;width:22px;height:22px;color:var(--accink);animation:nudge 1.6s infinite ease-in-out}
+#next:hover{background:linear-gradient(180deg,rgba(var(--acc),.4),rgba(var(--acc),.2)),var(--surf)}
+#next:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+body.nx{--nx:56px}
+@keyframes glow{0%,100%{box-shadow:0 0 10px rgba(var(--acc),.35),0 0 0 0 rgba(var(--acc),.0)}50%{box-shadow:0 0 28px rgba(var(--acc),.75),0 0 0 4px rgba(var(--acc),.12)}}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@keyframes nxin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (min-width:900px){
+#next{left:auto;right:max(12px,calc((100vw - 1240px)/2 + 12px));top:16px;bottom:16px;width:56px;height:auto;flex-direction:column-reverse;justify-content:center;gap:18px;padding:0;border-radius:28px}
+#next .nl{writing-mode:vertical-rl;font-size:14px;letter-spacing:.05em;white-space:nowrap}
+#next svg{animation:none}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(0)}}
+}
+/* v2: views */
+.wrap,.dash{transition:opacity .3s ease,transform .3s ease}
+.wrap.out{opacity:0;transform:translateX(-28px)}
+.dash{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:12px 16px calc(var(--bar) + 24px + env(safe-area-inset-bottom))}
+.dash[hidden],.wrap[hidden]{display:none!important}
+.dash.pre{opacity:0;transform:translateX(28px)}.dash.out{opacity:0;transform:translateX(28px)}.wrap.pre{opacity:0;transform:translateX(-28px)}
+.dtop{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.back{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 12px;border-radius:22px;border:1px solid rgba(var(--acc),.7);background:transparent;color:var(--accink);font-weight:600;font-size:14.5px}
+.back svg{width:18px;height:18px}
+.back:hover{background:rgba(var(--acc),.12)}
+.back:focus-visible,.dash a:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.deye{font-size:13px;letter-spacing:.03em;color:var(--accink);font-weight:600}
+.dash h2{margin:18px 0 4px;font-family:var(--serif);font-weight:300;font-size:clamp(34px,9vw,52px);line-height:1.05;letter-spacing:-.015em;outline:none}
+.dash h2 i{color:var(--accink);font-style:normal}
+.dlede{margin:0 0 16px;font-size:15.5px;line-height:1.4;color:var(--mid);max-width:56ch}
+.dg{display:grid;grid-template-columns:1fr;gap:14px}
+.dc{border:1px solid rgba(var(--acc),.28);border-radius:20px;padding:14px 14px 6px;background:linear-gradient(160deg,rgba(var(--acc),.08),rgba(var(--ln),.025))}
+.dc h3{margin:0 0 4px;font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.15}
+.dc .sub{margin:0 0 8px;font-size:13.5px;color:var(--dim);line-height:1.35}
+.dr{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 10px;padding:10px 0;border-top:1px solid var(--line)}
+.dr b{font-size:15.5px;font-weight:600;line-height:1.3}
+.dr span.d{display:block;grid-column:1;font-size:14px;line-height:1.35;color:var(--mid)}
+.dr.hot{margin:0 -8px;padding:10px 8px;border:1px solid var(--amber);border-radius:14px;background:rgba(var(--acc),.12);box-shadow:0 0 22px rgba(var(--acc),.2)}
+.dr.warn b{color:var(--accink)}
+.tg{justify-self:end;align-self:start;font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--dim);border:1px solid rgba(var(--ln),.2);border-radius:10px;padding:1px 7px;white-space:nowrap}
+.tg.new{color:#150c05;background:var(--amber);border-color:var(--accink)}
+.flag{display:inline-block;margin-left:6px;font-size:13px;font-weight:600;color:#150c05;background:var(--amber);border-radius:10px;padding:0 8px;letter-spacing:.02em;white-space:nowrap}
+.fill{grid-column:1/-1;display:grid;grid-template-columns:repeat(8,1fr);gap:3px;margin-top:2px}
+.fill i{height:6px;border-radius:3px;background:rgba(var(--ln),.12)}
+.fill i.on{background:var(--amber)}
+.dfoot{margin:16px 0 0;font-size:13px;line-height:1.45;color:var(--faint)}
+.dcta{display:none}.dtop .dtc{display:none}.deye{display:none}body.nx .cta-bar{background:var(--bg);height:calc(var(--bar) + var(--nx) + env(safe-area-inset-bottom))}body.nx .cta-bar a.cta{position:absolute;left:16px;right:16px;bottom:calc(12px + env(safe-area-inset-bottom));width:auto}
+@media (min-width:900px){
+.dash{padding:28px 84px 40px 32px}
+.dg{grid-template-columns:1fr 1fr;gap:18px}
+.dc{padding:18px 22px 10px}
+.dcta{display:none}.dtop .dtc{display:inline-flex;margin:0;min-height:44px;font-size:15px;padding:0 18px}.deye{display:none}
+.dcta p{margin:0;font-family:var(--serif);font-weight:300;font-size:30px}
+}
+:root{--acc:216,128,112;--t2:228,206,172}
+/* ===== soft light theme (v3) ===== */
+:root{--bg:#fdf5ee;--bgc:253,245,238;--surf:#fffdfa;--ink:#3a2a2f;--mid:#564449;--dim:#66545a;--faint:#6d5b61;--ln:96,66,74;--shd:120,76,88;--amber:rgb(var(--acc));--accink:#963f30;
+--serif:'Fraunces',Georgia,'Times New Roman',serif;--sans:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;--wa:#2fcf6f}
+html,body{background:var(--bg)}
+body{color:var(--ink)}
+.grain{display:none}
+body::before{background:radial-gradient(620px 520px at 50% 0%,rgba(var(--acc),.16),transparent 70%),radial-gradient(520px 520px at 100% 90%,rgba(var(--t2),.26),transparent 70%),radial-gradient(420px 420px at 0% 70%,rgba(var(--t2),.14),transparent 70%)}
+body::after{background:rgba(var(--t2),.35);filter:blur(80px)}
+h1,.studio,.closing,.dash h2,.dc h3,.start p,.note.sell,.dcta p{font-variation-settings:"SOFT" 100,"WONK" 0}
+.brand .eyebrow{font-weight:600;letter-spacing:.02em}
+.brand .studio{font-weight:350;font-size:clamp(28px,8vw,34px);letter-spacing:-.015em}
+.brand .studio.long{font-size:clamp(24px,6.6vw,30px)}
+.brand .studio i{color:rgb(var(--acc))}
+.brand h1{font-weight:380;letter-spacing:-.01em}
+.dash h2,.start p,.closing,.note.sell{font-weight:350;letter-spacing:-.01em}
+.dc h3{font-weight:400}
+.dash h2 i{color:rgb(var(--acc))}
+.blogo{background:#fff;box-shadow:0 0 0 1px rgba(var(--ln),.12),0 6px 16px -6px rgba(var(--shd),.35)}
+.phone{background:linear-gradient(180deg,var(--surf),rgba(var(--t2),.2));border-top:1px solid rgba(var(--ln),.12);border-bottom:1px solid rgba(var(--ln),.12)}
+.phone::before{background:linear-gradient(180deg,rgba(var(--acc),.1),transparent)}
+.ph-head{background:rgba(255,253,250,.7)}
+.av{background:#fff;box-shadow:0 0 0 1px rgba(var(--ln),.12)}
+.av.none{background:rgba(var(--acc),.14);color:var(--accink);box-shadow:inset 0 0 0 1px rgba(var(--acc),.5)}
+.av.wm{background:var(--surf);border:1px solid rgba(var(--acc),.55);color:var(--ink)}
+.who span::before{background:rgb(var(--acc))}
+.again,.back,.play{border-color:color-mix(in srgb,var(--accink) 70%,transparent);color:var(--accink);background:rgba(255,253,250,.6)}
+.again:hover,.back:hover,.play:hover{background:rgba(var(--acc),.12)}
+.play::before{border-left-color:var(--accink)}
+.play::after{border-color:rgba(var(--acc),.9)}
+.bk{background:linear-gradient(160deg,rgba(var(--acc),.1),rgba(var(--t2),.14)),var(--surf);border-color:rgba(var(--acc),.4);border-radius:18px;box-shadow:0 8px 24px -14px rgba(var(--shd),.4)}
+.bk-bar i{background:rgba(var(--ln),.12)}
+.bk-bar i.on{background:rgb(var(--acc));box-shadow:none}
+.bk .f{border-bottom-color:rgba(var(--ln),.22)}
+.bk .f.has{border-color:rgba(var(--acc),.8)}
+.bk .v:empty::before{background:rgba(var(--ln),.2)}
+.bk.done{border-color:rgb(var(--acc));box-shadow:0 0 0 4px rgba(var(--acc),.14),0 16px 40px -16px rgba(var(--shd),.5)}
+.bk .t2,.bk-n,.ck{color:var(--accink)}
+.msg{border-radius:20px;box-shadow:0 1px 2px rgba(var(--shd),.08)}
+.msg.bot{background:var(--surf);border-radius:20px 20px 20px 6px}
+.msg.me{background:linear-gradient(180deg,rgba(var(--acc),.24),rgba(var(--acc),.16));border-color:rgba(var(--acc),.4);border-radius:20px 20px 6px 20px}
+.note{background:rgba(var(--ln),.07);color:var(--dim)}
+.note.sell{color:var(--accink);background:none}
+.typing{background:var(--surf)}
+.typing span{background:var(--faint)}
+.start{background:radial-gradient(70% 60% at 50% 70%,rgba(var(--t2),.4),transparent 70%)}
+.start .msg{opacity:.75}
+.chips button{background:var(--surf);border-color:rgba(var(--ln),.16);color:var(--ink);box-shadow:0 1px 2px rgba(var(--shd),.06)}
+.chips button:hover:not(:disabled){border-color:rgb(var(--acc))}
+.chips button.asked{background:rgba(var(--acc),.12);border-color:rgba(var(--acc),.7);color:var(--accink)}
+.chips button:disabled,.again:disabled{opacity:.55}
+.play:focus-visible,.chips button:focus-visible,.again:focus-visible,a:focus-visible,.back:focus-visible{outline:2px solid var(--accink);outline-offset:2px}
+a.cta{color:#06260f;box-shadow:0 10px 24px -10px rgba(47,207,111,.7)}
+.cta-bar{background:linear-gradient(180deg,rgba(var(--bgc),0),var(--bg) 35%)}
+body.nx .cta-bar{background:var(--bg)}
+.end p,.dfoot{color:var(--faint)}
+.end .src a{color:var(--dim)}
+.wm polygon{fill:rgb(var(--acc))}
+/* location card */
+.msg.loc{background:var(--surf);padding:6px;border-radius:20px 20px 20px 6px}
+.loc .lc span{color:var(--mid)}
+.loc a.lk{border:1px solid color-mix(in srgb,var(--accink) 70%,transparent);color:var(--accink);border-radius:14px;background:rgba(var(--acc),.06)}
+.loc a.lk:hover{background:rgba(var(--acc),.14)}
+.map .m-bg{fill:rgb(var(--t2));fill-opacity:.32}
+.map .m-w{fill:#e9f0f2;fill-opacity:.9}
+.map .m-b{fill:#fffdfa;fill-opacity:.8}
+.map .m-r1{stroke:#fffdfa;stroke-width:9;fill:none;stroke-linecap:round}
+.map .m-r2{stroke:#fffdfa;stroke-opacity:.7;stroke-width:5;fill:none}
+.map .m-sh{fill:rgba(var(--shd),.28)}
+.map .m-pin{fill:rgb(var(--acc))}
+.map .m-dot{fill:#fffdfa}
+/* next-step control: soft rose glow, not neon */
+#next{background:linear-gradient(180deg,rgba(var(--acc),.2),rgba(var(--acc),.1)),var(--surf);border:1.5px solid rgb(var(--acc));color:var(--ink);animation:glow 2.6s infinite ease-in-out,nxin .5s both}
+#next svg{color:var(--accink)}
+#next:hover{background:linear-gradient(180deg,rgba(var(--acc),.3),rgba(var(--acc),.16)),var(--surf)}
+#next:focus-visible{outline:3px solid var(--accink);outline-offset:3px}
+@keyframes glow{0%,100%{box-shadow:0 0 10px rgba(var(--acc),.22),0 0 0 0 rgba(var(--acc),0)}50%{box-shadow:0 0 26px rgba(var(--acc),.5),0 0 0 4px rgba(var(--acc),.1)}}
+/* dashboard */
+.dc{background:linear-gradient(160deg,rgba(var(--acc),.07),rgba(var(--t2),.12)),var(--surf);border:1px solid rgba(var(--acc),.3);border-radius:22px;box-shadow:0 10px 30px -18px rgba(var(--shd),.45)}
+.dr.hot{border-color:rgba(var(--acc),.8);background:rgba(var(--acc),.1);box-shadow:0 0 0 3px rgba(var(--acc),.1)}
+.dr.warn b{color:var(--accink)}
+.tg{color:var(--dim);border-color:rgba(var(--ln),.3)}
+.tg.new,.flag{color:var(--accink);background:rgba(var(--acc),.16);border:1px solid rgba(var(--acc),.5)}
+.flag{font-weight:600}
+.fill i.on{background:rgb(var(--acc))}
+.deye{color:var(--accink)}
+@media (min-width:900px){
+body::before{background:radial-gradient(640px 640px at 76% 45%,rgba(var(--acc),.17),transparent 70%),radial-gradient(520px 520px at 0% 100%,rgba(var(--t2),.3),transparent 70%),radial-gradient(420px 420px at 40% 0%,rgba(var(--t2),.16),transparent 70%)}
+.phone{border:1px solid rgba(var(--ln),.14);border-radius:40px;background:linear-gradient(180deg,var(--surf),rgba(var(--t2),.2));box-shadow:0 30px 70px -24px rgba(var(--shd),.45),0 0 0 8px rgba(255,253,250,.65)}
+.phone.ok{box-shadow:0 30px 70px -24px rgba(var(--shd),.45),0 0 0 8px rgba(255,253,250,.65),0 0 0 11px rgba(var(--acc),.22)}
+.brand .studio{font-size:clamp(50px,5vw,72px)}
+.brand .studio.long{font-size:clamp(40px,3.8vw,54px)}
+.blogo{border-radius:50%}
+}
+@media (min-width:900px){.brand .rest{margin-top:10px}.brand h1{margin-top:22px}.brand .lede{margin-top:12px}}
+@media (min-width:900px) and (max-height:820px){.brand .studio{font-size:52px}.brand h1{margin-top:16px}}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="wrap" id="chatView">
+  <div class="screen">
+  <header class="brand">
+    <p class="eyebrow">Ön Masa demosu · Enes Eren&#x27;den</p>
+    <div class="brand-row"><p class="studio long">Gürses Dental Kağıthane<i>.</i></p></div>
+    <p class="rest">Diş Kliniği, Kağıthane, İstanbul</p>
+    <p class="lede-m">Siz hastayla ilgilenirken, o yanıtlar.</p>
+    <h1>Gelen mesaj, hazır randevu talebi olur</h1>
+    <p class="lede"><b>Ön Masa</b>, kliniğinizin yapay zekâ resepsiyonisti. Siz hastayla ilgilenirken, o yanıtlar.</p>
+  </header>
+  <section class="phone" aria-label="Örnek sohbet">
+    <div class="ph-head"><span class="av none" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.6A8 8 0 1 1 21 12z"/></svg></span><div class="who"><b>Gürses Dental Kağıthane</b><span>Yapay zekâ resepsiyonist</span></div><button type="button" class="again" id="again" hidden aria-label="Baştan izle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 3 3 9 9 9"/></svg><span>Baştan izle</span></button></div>
+    <div id="cardDock"></div>
+    <div class="log" id="log" aria-live="polite">
+      <div class="start" id="start">
+        <div class="msg me" aria-hidden="true">Merhaba, ben Elif. Çarşamba günü diş kontrolü için randevu almak istiyorum.</div>
+        <div class="go"><p>Kliniğinizin yapay zekâ resepsiyonisti.</p>
+        <button type="button" class="play" id="play">Demoyu izle</button></div>
+      </div>
+    </div>
+    <div class="chips" id="chips" aria-label="Örnek sorular"></div>
+  </section>
+  </div>
+  <div id="cardSide"></div>
+  <section class="close" id="close">
+    <p class="closing">Aynısı sizin kliniğiniz için.</p>
+    <a class="cta" href="https://wa.me/905442537176?text=Merhaba%2C%20G%C3%BCrses%20Dental%20Ka%C4%9F%C4%B1thane%20i%C3%A7in%20haz%C4%B1rlanan%20%C3%96n%20Masa%20demosunu%20g%C3%B6rd%C3%BCm.%20Bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Enes Eren&#x27;e yazın</a>
+  </section>
+  <footer class="end">
+    <p>Enes Eren hazırladı. Gürses Dental Kağıthane ile bağlı değildir.</p>
+    <p class="src"><span>Kaynaklar:</span><a href="https://www.google.com/maps/search/?api=1&amp;query=G%C3%BCrses%20Dental%20Ka%C4%9F%C4%B1thane%20A%C4%9F%C4%B1z%20ve%20Di%C5%9F%20Sa%C4%9Fl%C4%B1%C4%9F%C4%B1%20Poliklini%C4%9Fi%20Merkez%2C%20Kemerburgaz%20Cd.%20No%3A2/A%2C%2034413%20Ka%C4%9F%C4%B1thane/%C4%B0stanbul" target="_blank" rel="noopener noreferrer">Google Maps</a></p>
+  </footer>
+</div>
+
+<main class="dash pre" id="dash" hidden aria-labelledby="dh">
+  <div class="dtop"><button type="button" class="back" id="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="20" y1="12" x2="5" y2="12"/><polyline points="11 6 5 12 11 18"/></svg>Sohbete dön</button><span class="deye">Ön Masa demosu · Gürses Dental Kağıthane</span><a class="cta dtc" href="https://wa.me/905442537176?text=Merhaba%2C%20G%C3%BCrses%20Dental%20Ka%C4%9F%C4%B1thane%20i%C3%A7in%20haz%C4%B1rlanan%20%C3%96n%20Masa%20demosunu%20g%C3%B6rd%C3%BCm.%20Bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Enes Eren&#x27;e yazın</a></div>
+  <h2 id="dh" tabindex="-1">Klinik paneli<i>.</i></h2>
+  <p class="dlede">Siz hastayla ilgilenirken, Ön Masa yazışmaları toplar. Kliniğiniz bunu görür. Aşağıdaki her satır ve sayı örnek veridir.</p>
+  <div class="dg">
+<section class="dc" aria-label="Gelen talepler"><h3>Gelen talepler</h3><p class="sub">Sohbetten çıkan hazır randevu talepleri. Teyit sizde.</p><div class="dr hot"><b>Elif</b><span class="tg">ÖRNEK</span><span class="d">Diş kontrolü · Çarşamba 11:00 · sohbetten geldi</span></div><div class="dr"><b>Selin</b><span class="tg">ÖRNEK</span><span class="d">Diş kontrolü · Perşembe 12:30</span></div><div class="dr"><b>Deniz</b><span class="tg">ÖRNEK</span><span class="d">Diş kontrolü · Cuma 14:00</span></div><div class="dr"><b>Ayşe</b><span class="tg">ÖRNEK</span><span class="d">Diş kontrolü · Çarşamba 15:30</span></div><div class="dr"><b>Mert</b><span class="tg">ÖRNEK</span><span class="d">Diş kontrolü · Perşembe 11:00</span></div></section>
+<section class="dc" aria-label="Bugünkü randevular"><h3>Bugünkü randevular</h3><p class="sub">Durum tek bakışta.</p><div class="dr"><b>11:00 Diş kontrolü</b><span class="tg">ÖRNEK</span><span class="d">Teyitli</span></div><div class="dr"><b>12:30 Diş kontrolü</b><span class="tg">ÖRNEK</span><span class="d">Teyit bekliyor</span></div><div class="dr"><b>14:00 Diş kontrolü</b><span class="tg">ÖRNEK</span><span class="d">Teyitli</span></div><div class="dr"><b>15:30 Diş kontrolü</b><span class="tg">ÖRNEK</span><span class="d">Teyit bekliyor</span></div></section>
+<section class="dc" aria-label="Mesai dışı"><h3>Mesai dışı gelenler</h3><p class="sub">Kapalıyken gelen mesajlar kaybolmaz.</p><div class="dr"><b>Zeynep</b><span class="tg">ÖRNEK</span><span class="d">00:40 · kapandıktan sonra yazdı, diş kontrolü için talep alındı</span></div><div class="dr"><b>Burcu</b><span class="tg">ÖRNEK</span><span class="d">Pazar 11:20 · kapalıyken yazdı, çalışma saatleri yanıtlandı</span></div><div class="dr"><b>Can</b><span class="tg">ÖRNEK</span><span class="d">08:20 · açılmadan yazdı, sabah ilk iş dönüş yapıldı</span></div></section>
+<section class="dc" aria-label="Yanıtlanan sorular"><h3>Siz hastayla ilgilenirken yanıtlananlar</h3><p class="sub">Ekip yokken Ön Masa karşıladı.</p><div class="dr"><b>“Hangi saatlerde açıksınız?”</b><span class="tg">ÖRNEK</span><span class="d">11:42 · Çalışma saatleri yanıtlandı</span></div><div class="dr"><b>“Randevu almak istiyorum”</b><span class="tg">ÖRNEK</span><span class="d">12:05 · Talep alındı</span></div><div class="dr"><b>“Nerede?”</b><span class="tg">ÖRNEK</span><span class="d">12:31 · Konum kartı gönderildi</span></div><div class="dr"><b>“Fiyat nedir?”</b><span class="tg">ÖRNEK</span><span class="d">13:10 · Ekibe iletildi</span></div></section>
+  </div>
+  <div class="dcta"><p>Aynısı sizin kliniğiniz için.</p><a class="cta" href="https://wa.me/905442537176?text=Merhaba%2C%20G%C3%BCrses%20Dental%20Ka%C4%9F%C4%B1thane%20i%C3%A7in%20haz%C4%B1rlanan%20%C3%96n%20Masa%20demosunu%20g%C3%B6rd%C3%BCm.%20Bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Enes Eren&#x27;e yazın</a></div>
+  <p class="dfoot">Demo: hiçbir şey gönderilmedi. Örnek veri, gerçek üye veya gerçek rakam değildir. Enes Eren hazırladı. Gürses Dental Kağıthane ile bağlı değildir.</p>
+</main>
+<button type="button" id="next" hidden aria-controls="dash"><span class="nl">Sonraki adım: klinik paneli</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></button>
+  <div class="cta-bar" id="ctaBar"><a class="cta" href="https://wa.me/905442537176?text=Merhaba%2C%20G%C3%BCrses%20Dental%20Ka%C4%9F%C4%B1thane%20i%C3%A7in%20haz%C4%B1rlanan%20%C3%96n%20Masa%20demosunu%20g%C3%B6rd%C3%BCm.%20Bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Enes Eren&#x27;e yazın</a></div>
+
+<script type="application/json" id="studio-data">{"turns": [{"user": "Merhaba, ben Elif. Çarşamba günü diş kontrolü için randevu almak istiyorum.", "reply": "Merhaba Elif, hoş geldiniz. Çarşamba için hangi saat uygun?", "booking": {"ad": "Elif", "sinif": null, "gun": "Çarşamba", "saat": null, "telefon": null}}, {"user": "14:00 olsun.", "reply": "Çarşamba 14:00 için diş kontrolü talebini yazdım. Telefon numaranızı paylaşır mısınız?", "booking": {"ad": "Elif", "sinif": "Diş kontrolü", "gun": "Çarşamba", "saat": "14:00", "telefon": null}}, {"user": "Numaram 05XX XXX XX XX.", "reply": "Teşekkürler Elif. Talebiniz hazır: Diş kontrolü, Çarşamba 14:00. Ekibimiz teyit edip dönecek.", "booking": {"ad": "Elif", "sinif": "Diş kontrolü", "gun": "Çarşamba", "saat": "14:00", "telefon": "05XX XXX XX XX"}}], "chips": [["Saatler", "Hangi saatlerde açıksınız?", "Pazartesi-Cumartesi 09:00-22:00, Pazar kapalı."], ["Hizmetler", "Hangi hizmetleri veriyorsunuz?", "Diş kliniğiyiz. Hangi konuda randevu istediğinizi yazın, ekibimize ileteyim."], ["Randevu", "Randevu almak istiyorum", "Elbette. Hizmeti, günü ve saati yazın, talebinizi alayım."], ["Fiyat", "Fiyat nedir?", "Fiyat bilgisini ekibimiz paylaşır. Adınızı ve telefon numaranızı yazın, size dönelim."], ["Konum", "Klinik nerede?", "@loc"]], "note": "Demo: hiçbir şey gönderilmedi.", "sell": "Aynısı sizin kliniğiniz için."}</script>
+<script>
+(function(){
+'use strict';
+var $=function(s){return document.querySelector(s)};
+var D=JSON.parse($('#studio-data').textContent);
+var FIELDS=[['ad','Ad',''],['sinif','Hizmet',' w8'],['gun','Gün',''],['saat','Saat',' w3'],['telefon','Telefon (örnek)',' w5']];
+var REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var AUTO=!REDUCED&&!/noauto/.test(location.search);
+var shown=blank(),busy=false,played=false,timers=[],peek=0;
+function blank(){return {ad:null,sinif:null,gun:null,saat:null,telefon:null}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+/* ---------- static bits ---------- */
+var ch=$('#chips');D.chips.forEach(function(p){var b=document.createElement('button');b.type='button';b.textContent=p[0];b.onclick=function(){ask(p[1],p[2]);b.classList.add('asked')};ch.appendChild(b)});
+var CHECK='<svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6"/></svg>';
+var CHEV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>';
+var CARD='<div class="bk compact blank"><div class="bk-top"><span class="bk-t">'+CHECK+'<span class="t1">Randevu talebi</span><span class="t2">Talep hazır</span><span class="sum"></span></span><span class="bk-n"><span data-n>0/5</span>'+CHEV+'</span></div>'+
+  '<div class="bk-bar"><i></i><i></i><i></i><i></i><i></i></div><div class="bk-g">'+
+  FIELDS.map(function(f){return '<div class="f'+f[2]+'"><label>'+esc(f[1])+'</label><div class="v"></div></div>'}).join('')+
+  '</div><div class="bk-foot">'+esc(D.note)+'</div></div>';
+$('#cardDock').innerHTML=CARD;$('#cardSide').innerHTML=CARD;
+document.querySelector('#cardSide .bk').classList.remove('compact');
+
+/* ---------- booking card: counter, bar and value change in the same frame, one field at a time ---------- */
+function paint(glowKey){
+  var n=0;FIELDS.forEach(function(f){if(shown[f[0]])n++});
+  var sum=[shown.gun,shown.saat].filter(Boolean).join(' ');
+  document.querySelectorAll('.bk').forEach(function(bk){
+    var fs=bk.querySelectorAll('.f');
+    FIELDS.forEach(function(f,i){var box=fs[i],v=box.querySelector('.v'),val=shown[f[0]];
+      v.textContent=val||'';box.classList.toggle('has',!!val);
+      if(val&&f[0]===glowKey){v.classList.remove('glow');void v.offsetWidth;v.classList.add('glow')}});
+    bk.querySelector('[data-n]').textContent=n+'/5';
+    bk.querySelectorAll('.bk-bar i').forEach(function(b,i){b.classList.toggle('on',i<n)});
+    bk.querySelector('.sum').textContent=sum?'· '+sum:'';
+    bk.classList.toggle('blank',n===0);
+    bk.classList.toggle('done',n===5)});
+  $('.phone').classList.toggle('ok',n===5);
+}
+function setBooking(b){
+  timers.forEach(clearTimeout);timers=[];
+  var k=0;
+  FIELDS.forEach(function(f){var key=f[0];
+    if(!b[key]){shown[key]=null;return}
+    if(shown[key]===b[key])return;
+    timers.push(setTimeout(function(){shown[key]=b[key];paint(key)},REDUCED?0:k*170));k++});
+  paint();
+}
+var dock=$('#cardDock .bk');
+function setExp(){dock.setAttribute('aria-expanded',dock.classList.contains('compact')?'false':'true')}
+function togDock(){clearTimeout(peek);dock.classList.toggle('compact');setExp();scroll()}
+dock.setAttribute('tabindex','0');dock.setAttribute('role','button');setExp();
+dock.onclick=togDock;
+dock.onkeydown=function(e){if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){e.preventDefault();togDock()}};
+
+/* ---------- chat ---------- */
+var elLog=$('#log');
+function clearStart(){var e=$('#start');if(e)e.remove()}
+/* pin to the last bubble, then hide any bubble the card edge still slices (10px slack: a new bubble pops in 8px low for 280ms), so no cut line ever shows under the card */
+function trim(){var t=elLog.scrollTop;for(var c=elLog.firstElementChild;c;c=c.nextElementSibling)c.style.visibility=(c.offsetTop<t&&c.offsetTop+c.offsetHeight>t-10)?'hidden':''}
+function scroll(){elLog.scrollTop=elLog.scrollHeight;trim()}
+elLog.addEventListener('scroll',trim);
+window.addEventListener('resize',scroll);
+if(window.visualViewport)visualViewport.addEventListener('resize',scroll);
+function bubble(cls,text){var d=document.createElement('div');d.className=cls==='note'?'note':cls==='sell'?'note sell':'msg '+cls;d.textContent=text;elLog.appendChild(d);scroll();return d}
+function reveal(el,text,cb){
+  if(REDUCED){el.textContent=text;cb&&cb();return}
+  /* one character per 10ms, about 100 characters a second: readable while it types, a full run lands near 8.5s */
+  var i=0;
+  (function tick(){i++;el.textContent=text.slice(0,i);scroll();if(i<text.length)setTimeout(tick,10);else cb&&cb()})();
+}
+function typing(on){var t=$('#typing');
+  if(on&&!t){t=document.createElement('div');t.id='typing';t.className='typing';t.innerHTML='<span></span><span></span><span></span>';elLog.appendChild(t);scroll()}
+  if(!on&&t)t.remove()}
+/* one lock for the whole demo: chips and replay are disabled while a run or an answer is in flight */
+function setBusy(b){busy=b;document.querySelectorAll('#chips button').forEach(function(x){x.disabled=b});$('#again').disabled=b}
+var MAPS='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent("Gürses Dental Kağıthane Ağız ve Diş Sağlığı Polikliniği Merkez, Kemerburgaz Cd. No:2/A, 34413 Kağıthane/İstanbul");
+function locCard(){
+  var d=document.createElement('div');d.className='msg bot loc';
+  d.innerHTML='<svg class="map" viewBox="0 0 280 130" role="img" aria-label="Çizilmiş harita, klinik konumu işaretli"><rect class="m-bg" width="280" height="130"/><path class="m-w" d="M0 102 Q60 90 120 106 T280 98 V130 H0Z"/><g class="m-r1"><path d="M-10 40 L290 58"/><path d="M96 -10 L128 140"/><path d="M200 -10 L176 140"/></g><g class="m-r2"><path d="M-10 84 L290 22"/><path d="M40 -10 L52 140"/><path d="M240 -10 L252 140"/></g><g class="m-b"><rect x="108" y="20" width="22" height="18" rx="5"/><rect x="142" y="66" width="24" height="16" rx="5"/><rect x="210" y="70" width="26" height="18" rx="5"/><rect x="58" y="62" width="26" height="16" rx="5"/></g><g class="pin"><ellipse class="m-sh" cx="140" cy="62" rx="9" ry="3.5"/><path class="m-pin" d="M140 62 C128 46 124 40 124 33 A16 16 0 1 1 156 33 C156 40 152 46 140 62Z"/><circle class="m-dot" cx="140" cy="33" r="6.5"/></g></svg>'+
+   '<div class="lc"><b>Gürses Dental Kağıthane</b><span>Merkez, Kemerburgaz Cd. No:2/A, 34413 Kağıthane/İstanbul</span></div>'+
+   '<a class="lk" href="'+MAPS+'" target="_blank" rel="noopener noreferrer">Haritada aç<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><polyline points="8 7 17 7 17 16"/></svg></a>';
+  elLog.appendChild(d);scroll();return d}
+function ask(q,a){
+  if(busy)return;clearStart();setBusy(true);
+  if(!played){var ag=$('#again');ag.querySelector('span').textContent='Demoyu izle';ag.setAttribute('aria-label','Demoyu izle');ag.hidden=false}
+  bubble('me',q);
+  if(a==='@loc'){setTimeout(function(){locCard();setBusy(false);scroll()},REDUCED?0:250);return}
+  typing(true);
+  setTimeout(function(){typing(false);reveal(bubble('bot',''),a,function(){setBusy(false);scroll()})},REDUCED?0:800);
+}
+function play(){
+  if(busy)return;played=true;setBusy(true);clearTimeout(peek);
+  var ag=$('#again');ag.hidden=true;ag.querySelector('span').textContent='Baştan izle';ag.setAttribute('aria-label','Baştan izle');
+  document.querySelectorAll('#chips button').forEach(function(x){x.classList.remove('asked')});
+  nextOff();elLog.innerHTML='';dock.classList.add('compact');setExp();setBooking(blank());
+  bubble('note','Örnek üye, gerçek kişi değil');
+  var i=0;
+  (function next(){
+    /* money moment: the filled 5-field card opens on phones for 3s at every size (360 and 390 alike), then it folds back into the bar */
+    if(i>=D.turns.length){setBusy(false);$('#again').hidden=false;nextOn();
+      if(innerWidth<900){bubble('sell',D.sell);dock.classList.remove('compact');setExp();scroll();
+        peek=setTimeout(function(){dock.classList.add('compact');setExp();scroll()},REDUCED?0:3000)}
+      return}
+    var t=D.turns[i++],k=i;
+    setTimeout(function(){bubble('me',t.user);typing(true);
+      setTimeout(function(){typing(false);
+        reveal(bubble('bot',''),t.reply,function(){setBooking(t.booking);setTimeout(next,REDUCED?0:500)})},REDUCED?0:800)},REDUCED?0:(k===1?0:450));
+  })();
+}
+/* ---------- views: chat <-> studio panel ---------- */
+var nxt=$('#next'),chatV=$('#chatView'),dashV=$('#dash'),switching=false;
+function nextOn(){nxt.hidden=false;document.body.classList.add('nx');scroll()}
+function nextOff(){nxt.hidden=true;document.body.classList.remove('nx')}
+function swap(from,to,focusEl,after){
+  if(switching)return;switching=true;
+  var fin=function(){from.hidden=true;from.classList.remove('out');to.hidden=false;to.classList.add('pre');void to.offsetWidth;to.classList.remove('pre');scrollTo(0,0);if(focusEl)focusEl.focus({preventScroll:true});after&&after();setTimeout(function(){switching=false},REDUCED?0:300)};
+  if(REDUCED){fin();return}
+  from.classList.add('out');setTimeout(fin,300);
+}
+nxt.onclick=function(){nxt.hidden=true;document.body.classList.remove('nx');swap(chatV,dashV,$('#dh'))};
+$('#back').onclick=function(){swap(dashV,chatV,null,function(){nextOn();nxt.focus({preventScroll:true});scroll()})};
+$('#play').onclick=play;
+$('#again').onclick=function(){if(!busy)play()};
+paint();
+/* autoplay once, after the start screen has been read: the value has to show without a tap. Reduced motion keeps the button. */
+if(AUTO){
+  var go=function(){setTimeout(function(){if(played||busy)return;if(document.hidden){document.addEventListener('visibilitychange',function w(){if(!document.hidden){document.removeEventListener('visibilitychange',w);if(!played&&!busy)play()}})}else play()},600)};
+  Promise.race([document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve(),new Promise(function(r){setTimeout(r,800)})]).then(go,go);
+}
+})();
+</script>
+</body>
+</html>
